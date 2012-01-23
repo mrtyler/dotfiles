@@ -1,0 +1,51 @@
+# This .bashrc is the local config. It will call the system config, do
+# some setup, call the common config, and then finish up as needed.
+
+SYSTEM_BASHRC=/usr/local/dotfiles/system.bashrc
+COMMON_BASHRC=$HOME/dotfiles/bashrc.common
+
+# Saneify the path *first*
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# Source system config
+for file in $SYSTEM_BASHRC
+do
+	#echo "Sourcing system bashrc $file"
+	if [ -f $file ]; then
+		source $file
+	fi
+done
+
+# Set up some variables needed by the common config
+SSH_IDENTITY=""
+
+# Source common config
+for file in $COMMON_BASHRC
+do
+	#echo "Sourcing common bashrc $file"
+	if [ -f $file ]; then
+		source $file
+	fi
+done
+
+# Set the umask
+umask 0077
+
+# MANPATH should have the same precedence as PATH so i can read GNU ls manpages
+# since i'm using GNU ls.
+export MANPATH=/usr/local/man:/usr/openwin/man:/usr/man:/usr/depot/man
+
+# Some other dave hacks that look reasonable
+export CVSROOT=:pserver:tylerr@cvs.cnet.com:/cvs/main
+export ANT_HOME=/usr/local/cnet/ant/jakarta-ant-1.4
+export JAVA_HOME=/usr/local/depot/j2sdk-1.3.1_04/usr/j2se/
+
+# Solaris ps sux
+alias ps='/usr/ucb/ps'
+
+#Sybase -- stolen from justinw's .login
+export SYBASE=/usr/local/sybase
+export DSQUERY=PRODUCTION
+export SYBROOT=/home/sybase/local/sybooks
+export EBTRC=$SYBROOT/sun5m/.ebtrc
+export LOCALES=/usr/local/sybase/locales  # some people /usr/local/sybase/locales

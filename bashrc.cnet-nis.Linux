@@ -1,0 +1,61 @@
+# This .bashrc is the local config. It will call the system config, do
+# some setup, call the common config, and then finish up as needed.
+
+SYSTEM_BASHRC=/etc/bashrc
+COMMON_BASHRC=$HOME/dotfiles/bashrc.common
+
+# Saneify the path *first*
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# Source system config
+for file in $SYSTEM_BASHRC
+do
+	#echo "Sourcing system bashrc $file"
+	if [ -f $file ]; then
+		source $file
+	fi
+done
+
+# Set up some variables needed by the common config
+SSH_IDENTITY=""
+
+# Source common config
+for file in $COMMON_BASHRC
+do
+	#echo "Sourcing common bashrc $file"
+	if [ -f $file ]; then
+		source $file
+	fi
+done
+
+# Set the umask
+umask 0077
+
+# MANPATH should have the same precedence as PATH so i can read GNU ls manpages
+# since i'm using GNU ls.
+#export MANPATH=/usr/local/man:/usr/man:/usr/depot/man
+
+# Some other dave hacks that look reasonable
+export CVSROOT=:pserver:tylerr@cvs.cnet.com:/cvs/main
+export ANT_HOME=/opt/cnet-ant-1.5.1/
+export JAVA_HOME=/usr/java/j2sdk1.4.1_01/
+
+# Sybase
+export SYBASE=/opt/sybase-12.5
+export LD_LIBRARY_PATH=$SYBASE/ASE/lib:$SYBASE/OCS/lib:$SYBASE/FTS/lib:$SYBASE/SQLRemote/lib:$SYBASE/lib
+export LANG=en_US
+export PATH=$PATH:$SYBASE/ASE/bin:$SYBASE/OCS/bin:$SYBASE/FTS/bin:$SYBASE/SYSAM/bin:$SYBASE/shared/jre/bin
+export GDM_LANG=en_US
+
+# sudo aliases
+alias dep='sudo -u deploy'
+alias app='sudo -u app'
+alias htt='sudo -u httpd'
+alias sea='sudo -u searchd'
+alias pre='sudo -u precacherd'
+
+# temp hacky alias for vi to disable braindead fucking color scheme
+alias vi='vim -u ~/.vimrc'
+
+# leave my xterm titles alone!
+unset PROMPT_COMMAND

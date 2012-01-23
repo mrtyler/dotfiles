@@ -1,0 +1,110 @@
+SENDMAIL=/usr/sbin/sendmail
+MAILDIR=$HOME/Maildir
+LOGFILE=$HOME/.procmail/maillog
+PMDIR=$HOME/.procmail
+SHELL=/bin/sh
+
+# tun
+:0 c
+* ^SUBJECT.*forwarddrawrof
+| ~/bin/tun-wrap.sh
+
+# Weed out duplicate messages
+:0 Wh: msgid.lock
+| formail -D 8192 $PMDIR/msgid.cache
+
+:0
+* ^FROM.*[Ss]cheduled[Tt]ask(s?)@[Nn]ex[Tt]ag.com
+* ^SUBJECT:.*qa-ib-rh9: preload deployment status \(incomplete\)
+#*! ^SUBJECT.*[Rr][Ee]
+/dev/null
+
+#:0
+#* ^FROM.*support@[Nn]ex[Tt]ag.com
+#import-cron-boring/
+
+:0
+* ^FROM.*[Ss]cheduled[Tt]ask(s?)@[Nn]ex[Tt]ag.com
+* ^SUBJECT.*BMV PI - 
+bmvpi/
+
+:0
+* ^FROM.*[Ss]cheduled[Tt]ask(s?)@[Nn]ex[Tt]ag.com
+* ^SUBJECT.*Build MI - 
+mippa/
+
+:0
+* ^FROM.*[Ss]cheduled[Tt]ask(s?)@[Nn]ex[Tt]ag.com
+* ^SUBJECT.*MAP - 
+map/
+
+:0
+* ^FROM.*[Ss]cheduled[Tt]ask(s?)@[Nn]ex[Tt]ag.com
+* ^SUBJECT.*GroupTask - MAP
+map/
+
+:0
+* ^FROM.*[Ss]cheduled[Tt]ask(s?)@[Nn]ex[Tt]ag.com
+import-cron/
+
+#####
+# now backup everything else for safety and fun
+:0 c
+zzz-backup/
+
+:0
+* ^FROM.*root@
+* ^SUBJECT.*apache_logs_compress
+/dev/null
+
+:0
+* ^FROM.*root@
+* ^SUBJECT.*LogWatch for
+/dev/null
+
+:0
+* ^FROM.*root@
+* ^SUBJECT.*/usr/sbin/tripwire
+/dev/null
+
+:0
+* ^FROM.*cc@nextag.com
+* ^SUBJECT.*Build Successful.*
+cc-spam/
+
+:0
+* ^FROM.*oracle@.*nextag.com
+* ^SUBJECT.*BuildDB: replication OK
+/dev/null
+
+:0
+* ^FROM.*oracle@.*nextag.com
+* ^SUBJECT.*TBUILD: TOP
+/dev/null
+
+:0
+* ^FROM.*oracle@.*nextag.com
+cron/
+
+:0
+* ^FROM.*qa1@nextag.com
+* ^SUBJECT.*Build Installation
+cron/
+
+:0
+* ^FROM.*root@cruiser
+cron/
+
+:0
+* ^FROM.*root@b.*
+cron/
+
+:0
+* ^FROM.*bugzilla-daemon@cruiser.*
+bugz/
+
+# everything else goes in the default mailbox
+# (which we do to get it out of the spool dir, so we don't
+# have to deal with the spool dir.)
+:0
+$MAILDIR/

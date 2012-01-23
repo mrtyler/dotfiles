@@ -1,0 +1,73 @@
+set mbox_type = Maildir
+set folder = ~/Maildir/
+set spoolfile = ~/Maildir/
+
+# sent mail folder
+set record="+sent"
+
+# postponed mail folder
+set postponed="+postponed"
+
+# other addresses that are me, and can be removed when replying
+alternates = "(tyler@rescomp\.berkeley\.edu)|(tyler@radix\.cryptio\.net)|(tyler@academicchess\.com)"
+
+# unqualified addresses will be filled in with this value
+set hostname="cryptio.net"
+set use_domain
+
+# set the from field by hand
+set use_from=no
+my_hdr From: Tyler <tyler@cryptio.net>
+
+# switch configs
+macro index <f5> ":source ~/dotfiles/muttrc.radix\n" "Switch to radix config"
+#macro index <f6> ":source ~/dotfiles/muttrc.fnord\n" "Switch to fnord config"
+
+# mailbox shortcuts
+#macro index A <change-folder>=ac\n
+#macro pager A <change-folder>=ac\n
+#macro index J <change-folder>=acjob\n
+#macro pager J <change-folder>=acjob\n
+
+# handle spam
+macro index L s=learnspam\n
+macro pager L s=learnspam\n
+
+# Mailboxes of interest. Set these last because they can depend on other
+# variables (like $folder).
+#unset mailboxes
+mailboxes = =misc =bounce =debian =bh =ac =cmake =ccuser =ant =antcontrib =svn
+# old ones: =badiving =ccuser =cvs =bugz =staff =calteam =sdl =bugtraq =scons
+
+# Lists to know about
+#subscribe ba_diving@yahoogroups.com cruisecontrol-user@lists.sourceforge.net info-cvs@gnu.org mozilla-webtools@mozilla.org developers@bugzilla.org bugtraq@securityfocus.com misc@rescomp.berkeley.edu misc@hal.rescomp.berkeley.edu 
+
+# weird per-folder configs. The ccuser one should be replaced with
+# subscribing to the list correctly.
+folder-hook killspam set sort=date-received
+folder-hook !killspam set sort=threads
+folder-hook !killspam set sort_aux=last-date-received
+
+folder-hook ant my_hdr From: Tyler Roscoe <tyler@cryptio.net>
+folder-hook antcontrib my_hdr From: Tyler Roscoe <tyler@cryptio.net>
+folder-hook badiving my_hdr From: Tyler Roscoe <tyler@cryptio.net>
+folder-hook ccuser my_hdr From: Tyler Roscoe <tyler@cryptio.net>
+folder-hook cmake my_hdr From: Tyler Roscoe <tyler@cryptio.net>
+folder-hook scons my_hdr From: Tyler Roscoe <tyler@cryptio.net>
+folder-hook svn my_hdr From: Tyler Roscoe <tyler@cryptio.net>
+folder-hook ac my_hdr From: Tyler Roscoe <tyler@academicchess.com>
+folder-hook !(ant|antcontrib|badiving|ccuser|cmake|scons|svn|ac) my_hdr From: Tyler <tyler@cryptio.net>
+
+folder-hook ac set signature=~/dotfiles/signature.ac
+folder-hook !ac unset signature
+
+fcc-hook academicchess =ac/
+fcc-hook !academicchess =sent/
+
+# just reset some colors here, because i don't currently need the
+# overhead of a separate colors file for each host.
+color   indicator       brightblack     green   # actual message
+color   status          brightwhite     green   # status line
+
+# I never have a local login on radix and gvim init takes too long, hence the -X
+set editor="vim -X +2 -s ~/dotfiles/vimrc.mail"

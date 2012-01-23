@@ -1,0 +1,41 @@
+#!/bin/sh
+#
+# don't forget the ampersands!
+
+# customize these per machine
+export SSH_ASKPASS=/usr/lib/ssh/x11-ssh-askpass
+SSH_IDENTITY=".ssh/id_dsa.freeze"
+
+ssh-add $SSH_IDENTITY < /dev/null
+
+#xterm -geometry 140x24+0+0 &
+#xterm -geometry 140x24+0-40 &
+
+emacs & # enlightenment remembers where to put it for me
+mozilla &
+xmms &
+
+xmodmap -e "keysym Alt_L = Meta_L Alt_L"
+xset b 50 50 75
+
+#xwrits &
+xwrits after 15 clock multiply=5:1.4 &
+
+fetchmail -d 27
+
+# fix the keyboard rate. Note that this relies on something like this in
+# the sudoers file:
+# troscoe ALL=(ALL) NOPASSWD: /sbin/kbdrate
+sudo /sbin/kbdrate -r 26.7
+
+#autossh -M 21002 -L 8083:b3.nextag.com:80 nextag@b1 -N -g &
+#autossh -M 21004 -L 8084:b4.nextag.com:80 nextag@b1 -N -g &
+#autossh -M 21006 -L 8085:b5.nextag.com:80 nextag@b1 -N -g &
+#autossh -M 21008 -L 8095:ib5.nextag.com:80 nextag@im1 -N -g &
+#autossh -M 21096 -L 8096:10.1.1.96:80 nextag@im1 -N -g &
+#autossh -M 21010 -L 8521:bdb:1521 nextag@b1 -N -g &
+#autossh -M 21010 -L 8521:10.1.1.36:1521 nextag@im1 -N -g &
+#autossh -M 21010 -L 8521:10.1.1.36:1521 nextag@b1 -N -g &
+#autossh -M 21012 -L 8522:world:1521 im1 -N -g &
+
+enlightenment

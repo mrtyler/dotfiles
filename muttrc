@@ -1,0 +1,199 @@
+# pick up colors from bsii's colors file
+source ~/dotfiles/mutt-colors
+
+# gpg aux file that everyone on radix uses, thanks to Debian and/or Mark
+# :)
+source ~/dotfiles/mutt-gpg
+
+# put aliases here. you have to source this file also for mutt to pick them up.
+set alias_file = ~/dotfiles/mutt-aliases
+source ~/dotfiles/mutt-aliases
+
+# sort first by thread, then by date
+set sort=threads
+#set sort_aux=date
+set sort_aux=last-date-received
+
+# don't abort messages which have no subject
+set abort_nosubject = no
+
+# prompt before purging
+set delete = ask-yes
+
+# don't put attachments in the fcc: folder
+set fcc_attach = no
+
+# make sure this is enabled so that my_hdr commands will work
+set hdrs=yes
+
+# follow-up header behavior (for mailing lists)
+# set followup_to = yes
+set honor_followup_to = ask-yes
+
+# scroll one line at a time, rather than a page at a time
+set menu_scroll = yes
+
+# prompt before trying to print
+set print = ask-no
+
+# prompt to resume postponed messages
+set recall = ask-yes
+
+# don't reply to yourself
+set reply_self = no
+
+# don't suggest a default saved folder based on sender
+set save_address = no
+
+# wrap long lines at word boundary
+set smart_wrap = yes
+
+# allow suspend
+set suspend = yes
+
+# tmpdir
+set tmpdir = $TMPDIR
+
+# add user-agent header
+set user_agent = yes
+
+# don't wait for keypresses after invoking external commands
+set wait_key = no
+
+# how frequently, in seconds, mutt checks for new mail.
+set mail_check=60
+
+# makes the message view stop at the end of the message instead of continuing on
+# to the next message
+set pager_stop=yes
+
+# allows you to edit headers in place in your message
+set edit_headers=yes
+
+# jumps straight to the editor instead of prompting when composing
+set autoedit=yes
+
+# use vim to compose mail, and start at the second line (To:), and read
+# a special vimrc
+set editor="vim +2 -s ~/dotfiles/vimrc.mail"
+
+# control whether to put sent messages in a folder named for the recipient
+set save_name = no
+set force_name = no
+
+# move read messages out of the spool.
+set move=no
+
+# ask for permission before adding messages to a folder
+set confirmappend=no
+
+# ask for permission before creating a folder
+set confirmcreate=yes
+
+# the print command
+set print_command="enscript | lpr"
+
+# mark unread New messages as Old
+set mark_old = yes
+
+# quote the message you're replying to
+set include = ask-yes
+
+# ignore reply_to if it's the same as from
+# set ignore_list_reply_to=yes
+
+# set hdr_format="%Z %3C %{%b %d} %-19.19L (%5c) %s"
+# set folder_format="%N %F  %-8.8u %8s  %d  %f"
+
+# show bytes, not lines. show from, not list address.
+### DEFAULT set index_format="%Z %3C %{%b %d} %-15.15L (%4l) %s"
+set index_format="%Z %3C %{%b %d} %-15.15F (%4c) %s"
+
+# don't beep on errors
+unset beep
+
+# beep when new mail arrives
+set beep_new
+
+# ask before quitting
+set quit=ask-yes
+
+# put ssl certs here
+set certificate_file=~/dotfiles/mutt-certs
+
+# don't include me in replies
+set metoo=no
+
+# ask about using specified reply-to
+set reply_to=ask-yes
+
+set timeout=15
+
+# Keep context when doing page up/down
+set pager_context=1
+
+# Put a mini folder index at the top of the message screen
+set pager_index_lines=4
+
+# Only display a few headers when in normal viewing mode
+ignore *
+unignore date from reply-to to cc bcc subject
+# compensate for outlook forwarding brokenness
+unignore sender
+
+# Display headers in this order
+hdr_order Date: From: To: Cc: Bcc: Subject:
+
+# lbdb is cool
+#set query_command = "lbdbq '%s'"
+set query_command = "mutt_ldap_query '%s'"
+
+# get rid of help
+set help = no
+
+# tell mutt to sort spam based on spamassassin header
+#spam "X-Spam-Status: Yes, score=([\d\.]+)" "SA"
+
+### keybinding changes
+
+# x typically does "exit without saving", which is stupid, and conflicts with
+# pine's "expunge", which in mutt is $. so this is for safety.
+bind index x noop
+
+# clever hack borrowed from bsii's pineified muttrc.
+#macro index c <change-folder>?<TAB>
+#macro pager c <change-folder>?<TAB>
+
+# up and down should affect the message, though, not the index
+bind pager <up> previous-line
+bind pager <down> next-line
+
+# don't skip deleted messages
+bind index j next-entry
+bind index k previous-entry
+bind pager j next-entry
+bind pager k previous-entry
+
+bind generic \` current-middle
+bind generic ~ current-top
+
+macro index I <change-folder>=\n
+macro pager I <change-folder>=\n
+macro index S <change-folder>=sent\n
+macro pager S <change-folder>=sent\n
+
+# now source a local config
+source ~/dotfiles/muttrc.`hostname -s`
+
+# space does what it should
+# folder ordering
+# remember what folder i'm on
+# size instead of lines
+# active folders -- FIX MORE!!!: num new, better format
+# sigd!
+# mailing lists
+# index paging sucks? -- make it less like? b/f, top/bottom. conflicts: bounce, forward
+# folder hooks for cpsft
+# - other addresses that are me to know about
+# gpg
+# compose headers

@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# don't forget the ampersands!
+
+# customize these per machine
+export SSH_ASKPASS=/usr/lib/ssh/x11-ssh-askpass
+SSH_IDENTITY=".ssh/id_rsa.maynard"
+
+ssh-add $SSH_IDENTITY < /dev/null
+
+#xterm -geometry 140x24+0+0 &
+#xterm -geometry 140x24+0-40 &
+
+aoss firefox &
+aoss xmms &
+
+xmodmap -e "keysym Alt_L = Meta_L Alt_L"
+xset b 50 50 75
+
+enlightenment

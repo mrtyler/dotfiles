@@ -1,0 +1,143 @@
+! Parts (C) 1996 By Greg J. Badros <gjb@cs.duke.edu>
+! You may use this file as specified under the GNU General Public License
+
+! DEFINE OPTIONS:
+!   SMALL_SCREEN = force small screen options (automatic for <=800 width)
+!   NO_SMALL_SCREEN = force large screen options (automatic for >800 width)
+!   XAW3DCOLOR = default color for Xaw3d widget scrollbar (gray75 if not set)
+!   BLACK_BG_XTERMS = Use color settings to make colored text visible on
+!                     xterms with a black background
+
+#define RECOLOR_GHOSTVIEW
+#define RECOLOR_XDVI
+
+#ifdef COLOR
+*customization: -color
+#endif
+
+#if WIDTH<801
+#ifndef NO_SMALL_SCREEN
+#define SMALL_SCREEN
+#endif
+#endif
+
+emacs*Background: black
+emacs*Foreground: green
+emacs*pointerColor: White
+emacs*cursorColor: Gold
+emacs*bitmapIcon: on
+emacs*font: 8x16
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! xterm (and friends)
+
+XTerm*saveLines:	750
+
+XTerm*background:	black
+XTerm*foreground:	#FFFFFF
+XTerm*cursorColor:	#AAAAAA
+XTerm*scrollBar:	true
+XTerm*font:		8x16
+
+xter*fullCursor:	false
+xterm*reverseWrap:	true
+xterm*titleBar:		false
+
+!*visualBell:		true
+*scrollTtyOutput:	true
+*scrollKey:		True
+!Scrollbar.JumpCursor:	True
+Scrollbar.JumpCursor:	False
+*numeric:		C
+*displayLang:		C
+*basicLocale:		C
+*timeFormat:		C
+*inputLang:		C
+
+*VT100*colorBD: 	black
+*VT100*colorUL: 	yellow
+
+XTerm*SimpleMenu.background:	gray50
+XTerm*SimpleMenu.foreground:	black
+
+! Please email <gjb@cs.duke.edu> if you have a better
+! way of introducing a newline into a macro expansion
+! I get the NL by including an extra argument to the macro for which
+! I always use a literal newline as the argument
+#define FontAndLabel(cFont,sz,NL,lbl) \
+XTerm*VT100*font/**/cFont/**/: sz/**/NL \
+XTerm*fontMenu*font/**/cFont/**/*Label: lbl (/**/sz/**/)NL \
+
+#ifndef SMALL_SCREEN
+
+*SimpleMenu*font: *helvetica*r*normal*12*
+XDvi*font: *helvetica*r*normal*12*
+FontAndLabel(1,5x7,
+,Micro)
+FontAndLabel(2,5x8,
+,Tiny)
+FontAndLabel(3,6x10,
+,Small)
+FontAndLabel(4,fixed,
+,Medium)
+FontAndLabel(5,9x15,
+,Large)
+FontAndLabel(6,10x20,
+,Very Large)
+FontAndLabel(7,12x24,
+,Huge)
+
+#else
+
+*SimpleMenu*font: *helvetica*r*normal*10*
+XDvi*font: *helvetica*r*normal*10*
+FontAndLabel(1,5x7,
+,Micro)
+FontAndLabel(2,5x8,
+,Tiny)
+FontAndLabel(3,6x9,
+,Small)
+FontAndLabel(4,7x13,
+,Medium)
+FontAndLabel(5,9x15,
+,Large)
+FontAndLabel(6,10x20,
+,Huge)
+FontAndLabel(7,8x16,
+,Alternate Large)
+
+#endif
+
+*eightBitInput: 		true
+remotexterm*eightBitInput:	false
+
+xterm*VT100.Translations: #override\n\
+	<KeyPress>Prior : scroll-back(1,page)\n\
+	<KeyPress>Next : scroll-forw(1,page)
+
+!!! netscape tweaking stuff !!!
+Netscape*toolBar.destinations.isEnabled: false
+Netscape*toolBar.viewSecurity.isEnabled: false
+!Netscape*toolBar.print.isEnabled: false 
+Netscape*blinkingEnabled: false
+Netscape*noAboutSplash: true
+Netscape.geometry: 1144x794+0+0
+Netscape.Navigator.geometry: 1144x794+0+0
+Netscape*selectForeground: Black
+Netscape*selectBackground: Green
+!Netscape.Mail.geometry: 1016x745+0+0
+!Netscape.geometry: =788x524+0+0
+!Netscape.Navigator.geometry: =788x524-5-5
+
+!!! mozilla tweaking
+Mozilla.geometry: 1144x794+0+0
+
+!!! xclock tweaking attempts: editres is my new friend
+!xload.depth: 0
+xload*background: Black
+xload*foreground: White
+!xload.borderWidth: 1
+
+XBoard*showCoords: true
+XBoard*highlightLastMove: true
+XBoard*boardSize: bulky

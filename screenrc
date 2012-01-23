@@ -1,0 +1,6 @@
+escape "``"
+vbell off
+vbellwait 20
+# Autodetach session on hangup instead of terminating screen completely
+autodetach on 
+hardstatus string "[screen %n%?: %t%?] %h"

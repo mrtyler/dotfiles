@@ -1,0 +1,16 @@
+bashrc:
+
+Shell config files are the most complex and the most likely to change
+between sites, so their architecture is the most confusing.
+
+1. bashrc.template is copied into ~/.bashrc, because that's where bash
+   expects to find its config. This file sources the local config
+   file.
+
+2. The local config file calls the system config for that system.
+
+3. The local config file sets ups various needed variables, and then
+   calls the common config file.
+
+4. The local config file then finishes setting up or overrides
+   anything from the common config file that is system-dependent.

@@ -1,0 +1,34 @@
+#set mbox_type = Maildir
+set spoolfile="imaps://tyler@simap.criticalpointsoftware.com/INBOX"
+set folder="imaps://tyler@simap.criticalpointsoftware.com/INBOX."
+#set spoolfile="imap://tyler@mail/INBOX"
+#set folder="imap://tyler@mail/user.tyler/"
+
+# sent mail folder
+set record="+sent"
+
+# postponed mail folder
+set postponed="+postponed"
+
+# unqualified addresses will be filled in with this value
+set hostname="criticalpointsoftware.com"
+set use_domain
+
+# set the from field by hand
+set use_from=no
+my_hdr From: Tyler <tyler@criticalpointsoftware.com>
+
+# other addresses that are me, and can be removed when replying
+set alternates = "(tyler@.*criticalpointsoftware.com)|(tyler@.*cpsft.com)"
+
+mailboxes = =backups =cron =debian
+#imap_list_subscribed=no
+
+# clever hack borrowed from bsii's pineified muttrc.
+#macro index c <change-folder>?<TAB>
+#macro pager c <change-folder>?<TAB>
+
+# just reset some colors here, because i don't currently need the
+# overhead of a separate colors file for each host.
+color   indicator       brightblack     yellow           # actual message
+color   status          brightwhite     blue   # status line

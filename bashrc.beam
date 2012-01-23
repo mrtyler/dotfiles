@@ -1,0 +1,10 @@
+SOURCE_FILES="$HOME/dotfiles/bashrc.fnord"
+SSH_IDENTITY="$HOME/.ssh/id_rsa.maynard"
+
+for file in $SOURCE_FILES
+do
+        if [ -f $file ]; then
+                source $file
+        fi
+done
+

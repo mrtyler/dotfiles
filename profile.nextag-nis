@@ -1,0 +1,23 @@
+# This .bashrc is the local config. It will call the system config, do
+# some setup, call the common config, and then finish up as needed.
+
+SYSTEM_PROFILE=/etc/profile #FIXME
+COMMON_PROFILE=$HOME/dotfiles/profile.common #FIXME
+
+# Source system config
+for file in $SYSTEM_PROFILE
+do
+	if [ -f $file ]; then
+		source $file
+	fi
+done
+
+# Set up some variables needed by the common config
+
+# Source common config
+for file in $COMMON_PROFILE
+do
+	if [ -f $file ]; then
+		source $file
+	fi
+done

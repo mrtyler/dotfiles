@@ -1,0 +1,12 @@
+alias wm='tail -f .procmail/maillog'
+alias kexit='~/sigd/kill-sigd ; exit'
+alias w="w | grep -v USER | sort | more"
+alias wr='\w | grep resco | grep -v hal | grep -v u.- | sort'
+alias wi='\w | grep trisha ; \w | grep vanwie'
+alias lhg='last | head -n 250 | grep '
+
+export gordon=169.229.120.32
+
+alias kplay="ssh root@music \"killall playserver ; su - nobody -c \\\"/opt/local/ambient/playserver -i 250 -l 10 -n 80 -d 40\\\" &\""
+
+umask 077

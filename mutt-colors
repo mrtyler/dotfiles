@@ -1,0 +1,64 @@
+mono	normal		none		# normal text
+mono	indicator	reverse		# actual message
+mono	tree		none		# thread arrows
+mono	status		reverse		# status line
+mono	error		bold		# errors
+mono	message		none		# info messages
+mono	quoted		bold		# quoted text
+mono	signature	none		# signature
+mono	attachment	underline	# MIME attachments
+mono	search		reverse		# search matches
+mono	tilde		none		# ~ at bottom of msg
+mono	markers		bold		# + at beginning of wrapped lines
+mono	hdrdefault	none		# default header lines
+mono	bold		bold		# hiliting bold patterns in body
+mono	underline	underline	# hiliting underlined patterns in body
+
+# Various colors for different things in the mail text (URLs, email
+# addresses, etc.). I don't really like these.
+#mono	header		bold		"^(from|subject):"
+#mono	body		underline	"((ftp|http|https)://|news:)[^ >)\"\t]+"
+#mono	body		underline	"((ftp|http|https)://|(file|mailto|news):|www\\.)[-a-z0-9_.:]*[a-z0-9](/[^][{} \t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:!])?/?"
+#mono	body		underline	"[-a-z_0-9.]+@[-a-z_0-9.]+"
+#mono	body		bold		"(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
+#mono	body		underline	"(^| )_[-a-z0-9_]+_[,.?]?[ \n]"
+
+# Color terminals
+
+color 	normal 		default 	default		# normal text
+color 	indicator	brightblack 	green		# actual message
+color 	tree		cyan		default		# thread arrows
+color 	status		brightwhite	green	# status line
+color 	error		brightred	default		# errors   
+color 	message		red  		default		# info messages
+color   signature	red		default   	# signature
+color	attachment 	brightyellow 	red		# MIME attachments
+color 	search		brightyellow	red		# search matches
+color 	markers		red		default		# + at beginning of wrapped lines
+color 	hdrdefault 	green		default		# default header lines
+color 	bold		red		default		# hiliting bold patterns in body
+color 	underline	green		default		# hiliting underlined patterns in body
+color 	quoted		magenta		default		# quoted text   
+color 	quoted1		cyan		default
+color 	quoted2  	red		default		
+color	quoted3		green		default		
+color 	quoted4		blue		default		
+color 	quoted5		magenta		default		
+color 	quoted6		cyan	  	default		
+color   quoted7		red		default		
+color 	quoted8		green		default		
+color 	quoted9 	cyan		default		
+
+# Various colors for different things in the mail text (URLs, email
+# addresses, etc.). I don't really like these.
+#color	header		brightyellow		default		"^(from|subject):"
+#color	body		cyan		default		"((ftp|http|https)://|(file|mailto|news):|www\\.)[-a-z0-9_.:]*[a-z0-9](/[^][{}\t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:!])?/?"
+#color	body		cyan		default		"[-a-z_0-9.+]+@[-a-z_0-9.]+"
+#color 	body		red		default		"(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
+#color	body		green		default		"(^| )_[-a-z0-9_]+_[,.?]?[ \n]"
+
+color	index		yellow		default	~F	# Flagged
+color	index		brightgreen		default	~N	# New
+color	index		green		default	~O	# Old
+color	index		magenta		default	~T	# Tagged
+color	index		red		default	~D	# Deleted

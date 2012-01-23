@@ -1,0 +1,11 @@
+# This .bashrc should live in ~/.bashrc, so that bash knows to source it. 
+# Its purpose is to source other bashrc's as appropriate.
+
+SOURCE_FILES="$HOME/dotfiles/bashrc.`hostname -s`"
+
+for file in $SOURCE_FILES
+do
+	if [ -f $file ]; then
+		source $file
+	fi
+done

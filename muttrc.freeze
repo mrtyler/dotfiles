@@ -1,0 +1,42 @@
+set mbox_type = Maildir
+set spoolfile="~/Maildir/"
+set folder="~/Maildir/"
+#set spoolfile="imap://troscoe@apollo.nextag.com/INBOX"
+#set folder="imap://troscoe@apollo.nextag.com/"
+
+# sent mail folder
+set record="+sent"
+
+# postponed mail folder
+set postponed="+postponed"
+
+# unqualified addresses will be filled in with this value
+set hostname="nextag.com"
+set use_domain
+
+# set the from field by hand
+set use_from=no
+my_hdr From: Tyler Roscoe <troscoe@nextag.com>
+
+# other addresses that are me, and can be removed when replying
+#set alternates = "(tylerr@.*cnet.com)|(tylerr@pirate.*)|(tyler.roscoe@.*cnet.com)"
+
+mailboxes = =bugz =import-cron =mippa =map =bmvpi =cron =cc-spam
+#imap_list_subscribed=no
+
+# switch configs
+macro index <f5> ":source ~/dotfiles/muttrc.freeze\n" "Switch to normal config"
+macro index <f6> ":source ~/dotfiles/muttrc.freeze.imap\n" "Switch to imap config"
+
+# clever hack borrowed from bsii's pineified muttrc.
+#macro index c <change-folder>?<TAB>
+#macro pager c <change-folder>?<TAB>
+
+# just reset some colors here, because i don't currently need the
+# overhead of a separate colors file for each host.
+color   indicator       brightblack     yellow           # actual message
+color   status          brightwhite     yellow   # status line
+
+# use lbdb to query ldap
+#set query_command = "lbdbq '%s'"
+set query_command = "/usr/lib/lbdb/mutt_ldap_query '%s'"

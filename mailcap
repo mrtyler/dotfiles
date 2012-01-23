@@ -1,0 +1,13 @@
+application/msword ; antiword %s ; copiousoutput
+application/msexcel ; xlhtml %s | w3m -T text/html ; copiousoutput
+application/vnd.ms-excel ; xlhtml %s | w3m -T text/html ; copiousoutput
+application/x-msexcel ; xlhtml %s | w3m -T text/html ; copiousoutput
+text/html ; w3m %s -T text/html ; copiousoutput
+image/gif ; gqview %s ; copiousoutput
+image/jpg ; gqview %s ; copiousoutput
+image/jpeg ; gqview %s ; copiousoutput
+image/bmp ; gqview %s ; copiousoutput
+application/pdf ; gv %s ; copiousoutput
+application/x-pdf ; gv %s ; copiousoutput
+application/acrobat ; gv %s ; copiousoutput
+#application/octet-stream ; gv %s ; copiousoutput

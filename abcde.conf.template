@@ -1,0 +1,173 @@
+# System defaults for abcde.
+# Nothing in this file is uncommented by default.
+#
+# If you wish to override these system-wide settings, create your own
+# .abcde.conf file in your home directory.
+
+# If you wish to use a different CDDB server, edit this line.
+# If you just wanted to use a proxy server, just set your http_proxy
+# environment variable - wget will use it correctly.
+#CDDBURL="http://freedb.freedb.org/~cddb/cddb.cgi"
+
+# The CDDB protocol requires hello information, including a valid username
+# and hostname. If you feel paranoid about giving away such info, edit this
+# line - the format is username@hostname.
+HELLOINFO="foo@bar"
+
+# This controls the email address CDDB changes are submitted to.
+#CDDBSUBMIT=freedb-submit@freedb.org
+
+# Specify the style of encoder to use here - oggenc, vorbize, lame, gogo,
+# bladeenc, l3enc, xingmp3enc, mp3enc, or default.
+# Currently this affects the default location of the binary, the variable
+# to pick encoder command-line options from, and where the options are
+# given.
+# 'default' will currently choose oggenc or lame depending on OUTPUTTYPE.
+#ENCODERSYNTAX=default
+
+# CD reader program to use - currently recognized options are 'cdparanoia'
+# and 'cdda2wav'.
+#CDROMREADERSYNTAX=cdparanoia
+
+# Specify 'nice'ness of the encoder and of the CD reader.
+# This is a relative 'nice'ness (that is, if the parent process is at a
+# nice level of 12, and the ENCNICE is set to 3, then the encoder will
+# run with an absolute nice value of 15. Note also, that setting these
+# to be empty will result in some default niceness increase (4 in tcsh
+# and 10 using the bsdutils' nice).
+#ENCNICE=10
+#READNICE=10
+
+# Paths of programs to use
+#LAME=
+#GOGO=gogo
+#BLADEENC=bladeenc
+#L3ENC=l3enc
+#XINGMP3ENC=xingmp3enc
+#MP3ENC=mp3enc
+#VORBIZE=vorbize
+#OGGENC=oggenc
+#ID3=id3
+ID3V2=
+#CDPARANOIA=cdparanoia
+#CDDA2WAV=cdda2wav
+#WGET=wget
+#CDDISCID=cd-discid
+#CDDBTOOL=cddb-tool
+#EJECT=eject
+#DISTMP3=distmp3
+#VORBISCOMMENT=vorbiscomment
+
+# Options to call programs with
+#LAMEOPTS=
+#GOGOOPTS=
+#BLADEENCOPTS=
+#L3ENCOPTS=
+#XINGMP3ENCOPTS=
+#MP3ENCOPTS=
+#VORBIZEOPTS=
+#OGGENCOPTS=
+#ID3OPTS=
+#ID3V2OPTS=
+#CDPARANOIAOPTS=
+#CDDA2WAVOPTS=
+#WGETOPTS=
+#CDDBTOOLOPTS=
+#EJECTOPTS=
+#DISTMP3OPTS=
+
+# Actions to take
+# Comma-separated list of one or more of the following:
+# cddb,read,encode,tag,move,playlist,clean
+# encode implies read
+# tag implies cddb,read,encode
+# move implies cddb,read,encode,tag
+# playlist implies cddb
+#ACTIONS=cddb,read,encode,tag,move,clean
+
+# CDDB options
+# If NOSUBMIT is set to y, then abcde will never prompt asking if you
+# wish to submit your edited cddb file.
+#NOSUBMIT=n
+# If NOCDDBQUERY is set to y, then abcde will never even try to access
+# the CDDB server; running abcde will automatically drop you into a
+# blank cddb file to edit at your leisure.  This is the same as the
+# -n option.  NOCDDBQUERY=y implies NOSUBMIT=y.
+#NOCDDBQUERY=n
+
+# CD device you want to read from
+#CDROM=/dev/cdrom
+
+# If you'd like to make a default location that overrides the current
+# directory for putting mp3's, uncomment this.
+OUTPUTDIR=~/mp3
+
+# Or if you'd just like to put the temporary .wav files somewhere else
+# you can specify that here
+WAVOUTPUTDIR=~/mp3
+
+# OUTPUTTYPE can be either "ogg" or "mp3".
+OUTPUTTYPE=mp3
+
+# Output filename format - change this to reflect your inner desire to
+# organize things differently than everyone else :)
+# You have the following variables at your disposal:
+# OUTPUTTYPE, ALBUMFILE, ARTISTFILE, TRACKFILE, and TRACKNUM.
+# Make sure to single-quote this variable. abcde will automatically create
+# the directory portion of this filename.
+#OUTPUTFORMAT='${ARTISTFILE}/${TRACKFILE}.${OUTPUTTYPE}'
+
+# Like OUTPUTFORMAT but for Various Artists discs.
+#VAOUTPUTFORMAT='${ARTISTFILE}/${TRACKFILE}.${OUTPUTTYPE}'
+
+# Define how many encoders to run at once. This makes for huge speedups
+# on SMP systems. Defaults to 1. Equivalent to -j.
+#MAXPROCS=2
+
+# Support for systems with low disk space:
+# n:	Default parallelization (read entire CD in while encoding)
+# y:	No parallelization (rip, encode, rip, encode...)
+LOWDISK=y
+
+# Set the playlist file location format. Uses the same variables and format
+# as OUTPUTFORMAT. If the playlist is specified to be in a subdirectory, it
+# will be created for you and the playlist will reference files from that
+# subdirectory.
+#PLAYLISTFORMAT='${ARTISTFILE}_-_${ALBUMFILE}.m3u'
+# If you want to prefix every filename in a playlist with an arbitrary
+# string (such as 'http://you/yourstuff/'), use this option
+#PLAYLISTDATAPREFIX=''
+
+# Custom filename munging:
+# By default, abcde will do the following to CDDB data to get a useful
+# filename:
+# * Translate colons to a space and a dash for Windows compatibility
+# * Eat control characters, single quotes, and question marks
+# * Translate spaces and forward slashes to underscores
+# To change that, redefine the mungefilename function.
+# mungefilename recieves the CDDB data (artist, track, title, whatever)
+# as $1 and outputs it on stdout.
+mungefilename ()
+{
+	echo "$@" | sed s,:,\ -,g | tr / __ | tr -d \'\"\?\[:cntrl:\]
+}
+# original
+#	echo "$@" | sed s,:,\ -,g | tr \ / __ | tr -d \'\"\?\[:cntrl:\]
+
+
+# If you'd like to have abcde eject the cdrom after all the tracks have been
+# read, uncomment the following line.
+EJECTCD=n
+
+# To encode on the remote machines foo, bar, baz, quux, and qiix, as well as
+# on the local machine (requires distmp3 to be installed on local machine and
+# distmp3host to be installed and running on all remote machines - see README)
+#REMOTEHOSTS=foo,bar,baz,quux,qiix
+
+##### tyler additions
+
+# adding this because i don't have id3v2!
+ID3TAGV=1
+
+# figure out how to pad the track number
+OUTPUTFORMAT='${ARTISTFILE} - ${ALBUMFILE}/${TRACKNUM} - ${TRACKFILE}.$OUTPUTTYPE'

@@ -1,0 +1,16 @@
+# We source the local .bashrc from here, because .profile should always
+# source the bashrc, and because we want to capture all the bashrc stuff,
+# and the local bashrc is the one that calls all the others.
+
+SOURCE_FILES="$HOME/.bashrc"
+
+for file in $SOURCE_FILES
+do
+	if [ -f $file ]; then
+		source $file
+	fi
+done
+
+##### begin other configuration
+
+##### end other configuration

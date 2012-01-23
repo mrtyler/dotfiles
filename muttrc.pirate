@@ -1,0 +1,47 @@
+set mbox_type = Maildir
+set folder = ~/Maildir/
+set spoolfile = ~/Maildir/
+#set spoolfile="imap://tylerr@zdnet02.zdz.cnwk/INBOX"
+#set folder="imap://tylerr@zdnet02.zdz.cnwk/"
+
+# sent mail folder
+set record="+sent"
+
+# postponed mail folder
+set postponed="+postponed"
+
+# other addresses that are me, and can be removed when replying
+set alternates = "(tylerr@pirate.*)"
+
+# unqualified addresses will be filled in with this value
+set hostname="cnet.com"
+set use_domain
+
+# set the from field by hand
+set use_from=no
+my_hdr From: Tyler Roscoe<tyler.roscoe@cnet.com>
+
+# other addresses that are me, and can be removed when replying
+set alternates = "(tylerr@.*cnet.com)|(tylerr@pirate.*)|(tyler.roscoe@.*cnet.com)"
+
+# switch configs
+macro index <f5> ":source ~/dotfiles/muttrc.pirate\n" "Switch to normal config"
+macro index <f6> ":source ~/dotfiles/muttrc.pirate.imap\n" "Switch to imap config"
+
+mailboxes = =bugzilla =xcom-www =rpm =dmtg =spam
+#imap_list_subscribed=no
+
+folder-hook . set sort=threads
+folder-hook bugzilla set sort=subject
+
+# clever hack borrowed from bsii's pineified muttrc.
+#macro index c <change-folder>?<TAB>
+#macro pager c <change-folder>?<TAB>
+
+# just reset some colors here, because i don't currently need the
+# overhead of a separate colors file for each host.
+color   indicator       brightblack     yellow           # actual message
+color   status          brightwhite     yellow   # status line
+
+# compensate for outlook brokenness
+unignore sender

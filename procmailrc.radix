@@ -1,0 +1,171 @@
+SENDMAIL=/usr/sbin/sendmail
+MAILDIR=$HOME/Maildir
+LOGFILE=$HOME/.procmail/maillog
+PMDIR=$HOME/.procmail
+SHELL=/bin/sh
+
+# Weed out duplicate messages
+:0 Wh: msgid.lock
+| formail -D 8192 $PMDIR/msgid.cache
+
+#######
+# proc high-traffic/external/already-archived-by-someone-who-isn't-me lists
+# so they don't also end up in the backup folder
+
+:0
+* ^List-Id: "Ant Users List"
+ant/
+
+:0
+* ^List-Id: Ant Contribution Development
+antcontrib/
+
+:0
+* ^TO.*tyler\+ba_diving@cryptio.net
+badiving/
+:0
+* ^TO.*ba_diving@yahoogroups.com
+badiving/
+
+:0
+* ^List-Id.*For residents of the Beacon Hill neighborhood of Seattle
+* ^List-Id.*Announcements only - For residents of the Beacon Hill
+bh/
+
+:0
+* ^List-Id.*bugtraq.list-id.securityfocus.com.*
+bugtraq/
+
+:0
+* Sender.*developers-owner@bugzilla.org
+bugz/
+:0
+* List-Id.*mozilla-webtools.mozilla.org
+bugz/
+
+:0
+* List-Id.*cruisecontrol-user.lists.sourceforge.net
+ccuser/
+
+:0
+* ^TO.*cmake@cmake.*
+cmake/
+:0
+* ^CC.*cmake@cmake.*
+cmake/
+:0
+* ^List-Id:.*cdash.public.kitware.com.*
+cmake/
+
+:0
+* List-Id.*Announcements and discussions for the CVS version control system
+cvs/
+
+:0
+* ^TO.*@lists.debian.org
+debian/
+
+:0
+* ^Mailing-List.*contact users-help@scons.tigris.org
+scons/
+
+:0
+* ^Mailing-List.*contact sdlsound-help@icculus.org
+sdl/
+
+# tigris got rid of this header for some reason, so do it the other way
+# * ^Mailing-List.*contact users-help@subversion.tigris.org
+:0
+* ^TOusers@subversion.tigris.org
+svn/
+:0
+* ^CCusers@subversion.tigris.org
+svn/
+:0
+* ^TOusers@subversion.apache.org
+svn/
+:0
+* ^CCusers@subversion.apache.org
+svn/
+
+# eat me, news@idevnews.com
+:0
+* ^FROM.*news@idevnews.com.*
+/dev/null
+
+##############
+# now backup everything else for safety and fun
+:0 c
+zzz-backup/
+
+###########
+# SPAM trap
+:0 fw
+| spamc
+
+# Don't bother keep scores higher than 8
+:0
+* X-Spam-Level: \*\*\*\*\*\*\*\*+
+/dev/null
+
+:0
+* X-Spam-Flag: YES
+killspam/
+
+:0
+* ^TOtyler@radix.cryptio.net
+bounce/
+
+###########
+# begin actual rules
+
+:0
+* ^TOtyler@academicchess.com
+ac/
+
+:0
+* ^CCtyler@academicchess.com
+ac/
+
+:0
+* (^TO)misc(@(hal\.)?rescomp(\.berkeley\.edu)?)?([,> ]|$)
+misc/
+
+:0
+* ^SUBJECT.*xtodo.*
+todo/
+
+# kill stupid monthly mailman reminders
+:0
+* ^FROM.*mailman-owner@.*
+* ^SUBJECT.*mailing list memberships reminder.*
+/dev/null
+
+# destroy spam!
+:0
+* ^TOtyler\+sa@rescomp.berkeley.edu
+/dev/null
+
+# forward some mail to gmail so it goes to my phone
+:0 c
+* ^FROM.*@cryptio.net|\
+.*@domainredacted.com|\
+sparktography@gmail.com|\
+.*@microsoft.com|\
+.*@loungespot.com|\
+.*@olympicassociates.com|\
+.*@oacsvcs.com|\
+.*@zoo.org|\
+.*@harbornet.com|\
+.*@schedulepointe.com|\
+.*@rainierflightservice.com|\
+.*@tecplot.com|\
+.*@gmail.com|\
+boards@footballguys.com
+! tyler.cracker@gmail.com
+
+# everything else goes in the default mailbox
+# (which we do to get it out of the spool dir, so we don't
+# have to deal with the spool dir.)
+:0
+$MAILDIR/

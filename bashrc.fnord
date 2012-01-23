@@ -1,0 +1,52 @@
+# This .bashrc is the local config. It will call the system config, do
+# some setup, call the common config, and then finish up as needed.
+
+SYSTEM_BASHRC=/etc/bash.bashrc
+COMMON_BASHRC=$HOME/dotfiles/bashrc.common
+
+# Source system config
+for file in $SYSTEM_BASHRC
+do
+	#echo "Sourcing system bashrc $file"
+	if [ -f $file ]; then
+		source $file
+	fi
+done
+
+# Set up some variables needed by the common config
+SSH_IDENTITY="$HOME/.ssh/id_rsa.maynard"
+
+# Source common config
+for file in $COMMON_BASHRC
+do
+	#echo "Sourcing common bashrc $file"
+	if [ -f $file ]; then
+		source $file
+	fi
+done
+
+##### begin environment variables
+
+export ANT_HOME=/usr/share/java
+export CVSROOT=tyler@$radix:~/CVSROOT/
+#export JAVA_HOME=/usr/lib/j2sdk1.3/
+export JAVA_HOME=/usr/local/j2sdk1.4.0_01/
+export PATH=$PATH:~/bin:~/src/Sandbox/tyler/bin
+
+##### end environment variables
+##### begin aliases
+
+### general
+alias rexmms='killall xmms ; sleep 2 ; xmms &'
+
+alias sto='ds=`date +%Y-%m-%d` && vi ~/docs/sto/$ds'
+alias blo='ds=`date +%Y-%m-%d` && vi ~/docs/blog/$ds'
+alias jou='ds=`date +%Y-%m-%d` && vi ~/docs/js/$ds'
+
+##### end aliases
+##### begin other configuration
+
+umask 007 # this is for "one user per group" type systems.
+eval `dircolors`
+
+##### end other configuration

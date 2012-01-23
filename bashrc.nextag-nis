@@ -1,0 +1,71 @@
+# This .bashrc is the local config. It will call the system config, do
+# some setup, call the common config, and then finish up as needed.
+
+SYSTEM_BASHRC=/etc/bashrc # FIXME
+COMMON_BASHRC=$HOME/dotfiles/bashrc.common #FIXME
+
+# Source system config
+for file in $SYSTEM_BASHRC
+do
+	#echo "Sourcing system bashrc $file"
+	if [ -f $file ]; then
+		source $file
+	fi
+done
+
+# Set up some variables needed by the common config
+#SSH_IDENTITY="$HOME/.ssh/id_rsa.pirate $HOME/.ssh/identity.pirate" #FIXME
+
+# Source common config
+for file in $COMMON_BASHRC
+do
+	#echo "Sourcing common bashrc $file"
+	if [ -f $file ]; then
+		source $file
+	fi
+done
+
+##### begin environment variables
+
+export CVSROOT=:pserver:troscoe@cvs:/cvsroot
+
+##### end environment variables
+##### begin aliases
+
+### machines
+
+### general
+alias lrl='less /var/log/resin/*.log'
+alias trl='tail -f /var/log/resin/*.log'
+
+alias lal='less /var/log/httpd/access_log /var/log/httpd/error_log'
+alias tal='tail -f /var/log/httpd/access_log /var/log/httpd/error_log'
+
+alias lall='less `ls /var/log/httpd/access_log.* | tail -1` /var/log/httpd/error_log'
+alias tall='tail -f `ls /var/log/httpd/access_log.* | tail -1` /var/log/httpd/error_log'
+
+alias ltl='less /opt/tomcat/logs/catalina.out /opt/tomcat/logs/server.log '
+alias ttl='tail -f /opt/tomcat/logs/catalina.out /opt/tomcat/logs/server.log `ls -tr /opt/tomcat/logs/localhost* | tail -1`'
+
+alias nex='sudo -u nextag'
+alias bnex='sudo su - nextag'
+alias cc='sudo -u cc'
+alias tom='sudo -u tomcat'
+
+alias wstop='sudo -u nextag webstop'
+alias wstart='sudo -u nextag webstart < /dev/null > ~/webstart.log 2>&1 && cat ~/webstart.log'
+alias wbounce='wstop ; wstart'
+
+alias tstop='sudo -u tomcat /opt/tomcat/bin/shutdown.sh'
+alias tstart='sudo -u tomcat /opt/tomcat/bin/startup.sh'
+alias tbounce='tstop ; tstart'
+
+##### end aliases
+##### begin other configuration
+
+umask 0022
+eval `dircolors`
+
+unset PROMPT_COMMAND
+
+##### end other configuration

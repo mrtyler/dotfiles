@@ -1,0 +1,46 @@
+# This .bashrc is the local config. It will call the system config, do
+# some setup, call the common config, and then finish up as needed.
+
+SYSTEM_BASHRC=/usr/local/dotfiles/system.bashrc
+COMMON_BASHRC=$HOME/dotfiles/bashrc.common
+
+# Source system config
+for file in $SYSTEM_BASHRC
+do
+	#echo "Sourcing system bashrc $file"
+	if [ -f $file ]; then
+		source $file
+	fi
+done
+
+# Set up some variables needed by the common config
+SSH_IDENTITY="$HOME/.ssh/id_rsa.maynard" 
+
+# Source common config
+for file in $COMMON_BASHRC
+do
+	#echo "Sourcing common bashrc $file"
+	if [ -f $file ]; then
+		source $file
+	fi
+done
+
+# Set the umask
+umask 0077
+
+# Force a color xterm, mostly so mutt color works. This is aparently not the
+# Right Way to do this.
+if [ $TERM = "xterm" ]
+then
+	export TERM=xterm-color
+fi
+
+# stupid bsd ytalk
+alias ytalk='ytalk -x'
+
+##### begin environment variables
+export CVSROOT=$HOME/CVSROOT
+export svnroot=file://$HOME/svnroot/trunk
+
+##### end environment variables
+

@@ -1,0 +1,159 @@
+# .bashrc
+# vim:tw=0
+
+##### begin machine variables
+
+### rescomp
+export hal=hal.rescomp.berkeley.edu
+export music=music.rescomp.berkeley.edu
+
+### radix
+export radix=radix.cryptio.net
+
+### home
+export fnord=fnord
+export maynard=maynard
+export beam=beam
+export breaker=tool.badmofos.org
+
+### general
+export CVS_RSH=ssh
+export PAGER=less
+export PS1='\[\e[1;32m\][\u@\h:\w]\$\[\e[0m\] '
+export PATH=$PATH:$HOME/bin
+export TEMP=/tmp/$USER
+export TMP=/tmp/$USER
+export TEMPDIR=/tmp/$USER
+export TMPDIR=/tmp/$USER
+export VISUAL=vi
+export svnroot="svn+ssh://$radix/home/tyler/svn"
+
+##### end environment variables
+##### begin aliases
+
+### machines
+alias grlo="ssh root@localhost"
+alias gtlo="ssh $USER@localhost"
+alias gth="ssh tyler@$hal"
+alias gtr="ssh tyler@$radix"
+alias grr="ssh root@$radix"
+alias gtf="ssh tyler@$breaker"
+alias grf="ssh root@$breaker"
+alias gtm="ssh tyler@$maynard"
+alias grm="ssh root@$maynard"
+
+### prompt stuff
+alias colorprompt="export PS1='\[\e[1;32m\][\u@\h \w]\$\[\e[0m\] '"
+alias plainprompt="export PS1='[\u@\h \w]\$ '"
+
+### ssh agent stuff
+alias ag='exec ssh-agent bash'
+ad()
+{
+    if [ -z "$SSH_IDENTITY" ]
+    then
+        echo 'No SSH_IDENTITY specified!'
+        ssh-add
+    else
+        for id in $SSH_IDENTITY
+        do
+            ssh-add $id
+        done
+    fi
+}
+
+### general
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias screen='TERM=screen screen'
+
+# This pretty much assumes GNU ls
+alias ls="ls --color=auto"
+
+alias mm='mutt'
+alias pi='pine -izd0'
+alias w3m='w3m -no-mouse'
+alias diff='diff -u'
+
+alias rp="w3m 'http://www.radioparadise.com/modules.php?name=mini&file=mini_nowplay'"
+alias rexmms='killall xmms && sleep 2 && xmms &'
+
+alias lsmp3='find -type d -exec ls -d {} \; | sort -f'
+alias playlist="find -type f | grep -v tmp | grep -v \@SKIP | egrep '\.(mp3|ogg|wav|m4a)' | sort -f" # > \@all
+#| grep -v Humor  
+
+alias learnspam='find $HOME/Maildir/killspam/cur/ -exec sa-learn --spam --showdots {} \; && find $HOME/Maildir/killspam/new/ -exec sa-learn --spam --showdots {} \; && rm -f $HOME/Maildir/killspam/cur/* $HOME/Maildir/killspam/new/* && find $HOME/Maildir/learnspam/cur/ -exec sa-learn --spam --showdots {} \; && find $HOME/Maildir/learnspam/new/ -exec sa-learn --spam --showdots {} \; && rm -f $HOME/Maildir/learnspam/cur/* $HOME/Maildir/learnspam/new/*'
+alias learnham='sa-learn --ham --showdots $HOME/Maildir/cur/* $HOME/Maildir/saved/cur/*'
+
+# Try to find a useful vi
+if `which vim > /dev/null 2>&1`
+then
+    vi='vim'
+elif `which nvi > /dev/null 2>&1`
+then
+    vi='nvi'
+else
+    echo "Couldn't find an enhanced vi." > /dev/stderr
+    vi='vi'
+fi
+
+alias vi=$vi
+export VISUAL=$vi
+export EDITOR=$vi
+
+alias w="w | grep -v "^USER" | sort | more"
+alias wr='\w | grep resco | grep -v hal | grep -v u.- | sort'
+alias wi='\w | egrep "([t]risha|[v]anwie|[b]sii|[b]inky|[r]ick)" | sort | more'
+
+alias shr='cd `pwd | sed -e "s/head/release/g"`'
+alias srh='cd `pwd | sed -e "s/release/head/g"`'
+
+alias sjt='cd `pwd | sed -e "s,/java/,/test/,g"`'
+alias stj='cd `pwd | sed -e "s,/test/,/java/,g"`'
+
+# This passes an excel spreadsheet to xlhtml, and passes that to w3m.
+xlw3m() {
+    xlhtml $1 | w3m -T 'text/html'
+}
+
+# Thanks, dave.
+function google () {
+  IFS=+;
+  w3m http://www.google.com/search?q="$*";
+}
+function lgoogle () {
+  IFS=+;
+  w3m http://www.google.com/search?btnI=\&q="$*";
+}
+function lyrics () {
+  IFS=+;
+  w3m http://www.google.com/search?btnI=\&q=lyrics+"$*";
+}
+
+# Thanks, dave.
+function imdb () {
+  IFS=+;
+  w3m http://us.imdb.com/Find?for="$*";
+}
+
+# thanks dave^H^H^H^Hhoss
+alias calc="perl -ple'\$_=eval'"
+
+sort-in-place() {
+    sort -n $1 > $TMPDIR/z.$$ && mv $TMPDIR/z.$$ $1
+}
+
+##### end aliases
+##### begin other configuration
+
+if [ ! -d /tmp/$USER ]
+then
+    mkdir -m 0700 /tmp/$USER
+fi
+
+# Stupid openssh workaround
+shopt -s huponexit
+
+##### end other configuration
