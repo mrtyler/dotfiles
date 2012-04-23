@@ -1,12 +1,17 @@
-:set modeline
-:set modelines=5
-:set textwidth=72
-:set tabstop=4
-:set shiftwidth=4
-:set autoindent
-:set hidden
-:set expandtab
-:syntax enable
+"""2012-04-22
+"""From https://github.com/tpope/vim-pathogen
+source ~/dotfiles/vim/autoload/pathogen.vim
+call pathogen#infect('~/dotfiles/vim/bundle')
+
+set modeline
+set modelines=5
+set textwidth=72
+set tabstop=4
+set shiftwidth=4
+set autoindent
+set hidden
+set expandtab
+syntax enable
 
 """2011-06-25
 """From http://www.ktaylor.name/2009/11/vim-screen-lisp-programming-environment.html
