@@ -1,6 +1,6 @@
 """2012-04-22
 """From https://github.com/tpope/vim-pathogen
-source ~/dotfiles/vim/autoload/pathogen.vim
+set runtimepath+=~/dotfiles/vim
 call pathogen#infect('~/dotfiles/vim/bundle')
 
 set modeline
