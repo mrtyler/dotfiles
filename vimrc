@@ -51,3 +51,9 @@ filetype plugin on
 if filereadable("/nail/scripts/aliases.sh")
     set noexpandtab
 endif
+
+"""2012-04-23
+"""From https://trac.yelpcorp.com/wiki/VimTips
+"Initialize with:
+"/usr/bin/ctags -L <(find . -name '*.py') --fields=+iaS --python-kinds=-i --sort=yes --extra=+q
+set tags=./tags;/
