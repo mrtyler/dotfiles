@@ -14,7 +14,7 @@ do
 done
 
 # Set up some variables needed by the common config
-SSH_IDENTITY="$HOME/.ssh/id_rsa.maynard"
+SSH_IDENTITY="$HOME/.ssh/id_rsa.toaster"
 
 # Source common config
 for file in $COMMON_BASHRC
