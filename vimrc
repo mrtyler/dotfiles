@@ -57,3 +57,9 @@ endif
 "Initialize with:
 "/usr/bin/ctags -L <(find . -name '*.py') --fields=+iaS --python-kinds=-i --sort=yes --extra=+q
 set tags=./tags;/
+
+"""2012-04-24
+"""From https://github.com/scrooloose/syntastic/blob/master/doc/syntastic.txt
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
