@@ -2,7 +2,7 @@
 
 src_dir=`pwd`
 copy_us="bashrc.template profile.template"
-symlink_us="vimrc cvsrc mailcap screenrc"
+symlink_us="vimrc cvsrc mailcap screenrc tmux.conf"
 
 # stupid default .bash_profile screws up my shit
 mv ~/.bash_profile ~/.bash_profile.orig.diediedie
