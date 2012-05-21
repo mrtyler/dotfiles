@@ -1,39 +1,18 @@
-# This .bashrc is the local config. It will call the system config, do
-# some setup, call the common config, and then finish up as needed.
+# 2012-04-10 from https://trac.yelpcorp.com/wiki/SandBox
+if [ "$YELP_IN_SANDBOX" ]; then
+    export PS1="$PS1(sandbox)\$ "
+fi
 
-SYSTEM_BASHRC=/etc/bashrc
-COMMON_BASHRC=$HOME/dotfiles/bashrc.common
+alias screen='export TERM=xterm-256color ; screen'
+alias tmux='$HOME/local/bin/tmux'
 
-# Source system config
-for file in $SYSTEM_BASHRC
-do
-	#echo "Sourcing system bashrc $file"
-	if [ -f $file ]; then
-		source $file
-	fi
-done
-
-# Set up some variables needed by the common config
-SSH_IDENTITY="$HOME/.ssh/id_rsa"
-
-# Source common config
-for file in $COMMON_BASHRC
-do
-	#echo "Sourcing common bashrc $file"
-	if [ -f $file ]; then
-		source $file
-	fi
-done
-
-##### begin environment variables
-##### end environment variables
-
-##### begin aliases
-### general
-unalias ls # BSD ls :(
-##### end aliases
-
-##### begin other configuration
-#umask 007 # this is for "one user per group" type systems.
-#eval `dircolors`
-##### end other configuration
+# 2012-05-14 from juliank
+function fix_ssh_agent_tmux() {
+    if [[ -n $TMUX ]]; then
+        NEW_SSH_AUTH_SOCK=`tmux showenv|grep ^SSH_AUTH_SOCK|cut -d = -f 2`
+        if [[ -n $NEW_SSH_AUTH_SOCK ]] && [[ -S $NEW_SSH_AUTH_SOCK ]]; then
+            SSH_AUTH_SOCK=$NEW_SSH_AUTH_SOCK
+        fi
+    fi
+}
+export PROMPT_COMMAND="fix_ssh_agent_tmux"
