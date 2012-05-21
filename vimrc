@@ -50,6 +50,7 @@ filetype plugin on
 " At work we use tabs =/
 if filereadable("/nail/scripts/aliases.sh")
     set noexpandtab
+    set textwidth=0
 endif
 
 """2012-04-23
