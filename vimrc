@@ -11,6 +11,7 @@ set shiftwidth=4
 set autoindent
 set hidden
 set expandtab
+set list
 syntax enable
 
 """2011-06-25
@@ -26,7 +27,7 @@ imap <C-c><C-c> <Esc><C-c><C-c><Right>
 
 """2012-04-22
 """From https://github.com/bukzor/buck_dotfiles/blob/master/.vimrc
-set ruler showcmd       "give line, column, and command in the status line
+"set ruler showcmd       "give line, column, and command in the status line
 set laststatus=2        "always show the status line
                         "make filename-completion more terminal-like
 set wildmode=longest:full
