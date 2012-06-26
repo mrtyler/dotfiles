@@ -12,6 +12,7 @@ set autoindent
 set hidden
 set expandtab
 set list
+set listchars=tab:>-,eol:$,trail:·
 syntax enable
 
 """2011-06-25
