@@ -14,6 +14,8 @@ set expandtab
 set list
 set listchars=tab:>-,eol:$,trail:·
 syntax enable
+"fffffffuuuuuuuuu DarkBlue
+highlight Comment ctermfg=Yellow
 
 """2011-06-25
 """From http://www.ktaylor.name/2009/11/vim-screen-lisp-programming-environment.html
@@ -66,3 +68,10 @@ set tags=./tags;/
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+"""2012-07-09
+"""From striglia
+" Fix vim trying to double indent by hardcoding a single indent at all times.
+let g:pyindent_open_paren = '&sw'
+let g:pyindent_nested_paren = '&sw'
+let g:pyindent_continue = '&sw'
