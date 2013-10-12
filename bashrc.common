@@ -47,7 +47,7 @@ alias colorprompt="export PS1='\[\e[1;32m\][\u@\h \w]\$\[\e[0m\] '"
 alias plainprompt="export PS1='[\u@\h \w]\$ '"
 
 ### ssh agent stuff
-alias ag='exec ssh-agent bash'
+alias ag='export IGNOREEOF=6 ; exec ssh-agent bash'
 ad()
 {
     if [ -z "$SSH_IDENTITY" ]
