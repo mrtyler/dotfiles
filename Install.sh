@@ -21,3 +21,9 @@ do
 	cd $HOME
 	ln -s $src_dir/$i .$i
 done
+
+# who's a snowflake? irssi's a snowflake!
+mkdir .irssi
+cd .irssi
+ln -s $src_dir/irssi_config config
+cd -
