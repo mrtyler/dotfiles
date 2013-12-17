@@ -109,7 +109,7 @@ statusbar = {
     # the "default statusbar" to be displayed at the bottom of the window.
     # contains all the normal items.
     window = {
-      disabled = "no";
+      disabled = "yes";
 
       # window, root
       type = "window";
@@ -193,8 +193,25 @@ settings = {
     nick = "troscoe";
     timestamp_format = "%d.%H:%M:%S";
   };
-  "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { theme = "xchat"; };
+  "fe-text" = {
+    actlist_sort = "refnum";
+    scrollback_lines = "9999";
+    scrollback_time = "7day";
+  };
+  "fe-common/core" = {
+    theme = "xchat";
+    show_names_on_join = "no";
+    hilight_color = "%G";
+    hilight_act_color = "%4";
+  };
+  "perl/core/scripts" = {
+    awl_block = "-13";
+    awl_display_key = "$Q $H$C$S";
+    awl_display_key_active = "%g$Q $H%U$C%n$S%n";
+    awl_display_nokey = "[$N]$H$C$S";
+    awl_hide_data = "0";
+    awl_prefer_name = "yes";
+  };
 };
 logs = { };
 ignores = (
@@ -203,3 +220,77 @@ ignores = (
 );
 hilights = ( { text = "releng"; nick = "no"; word = "yes"; } );
 keyboard = ( { key = "meta-l"; id = "command"; data = "window last"; } );
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#systems";
+        tag = "yelp";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#levchins";
+        tag = "yelp";
+      }
+    );
+  };
+  4 = {
+    items = (
+      { 
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#git";
+        tag = "yelp";
+      }
+    );
+  };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#yelp";
+        tag = "yelp";
+      }
+    );
+  };
+  6 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#releng";
+        tag = "yelp";
+      }
+    );
+  };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#operations";
+        tag = "yelp";
+      }
+    );
+  };
+  8 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#test";
+        tag = "yelp";
+      }
+    );
+  };
+};
+mainwindows = { 1 = { first_line = "1"; lines = "38"; }; };
