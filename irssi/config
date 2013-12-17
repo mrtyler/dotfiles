@@ -282,15 +282,5 @@ windows = {
       }
     );
   };
-  8 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#test";
-        tag = "yelp";
-      }
-    );
-  };
 };
-mainwindows = { 1 = { first_line = "1"; lines = "38"; }; };
+mainwindows = { 3 = { first_line = "1"; lines = "38"; }; };
