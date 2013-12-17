@@ -203,6 +203,8 @@ settings = {
     show_names_on_join = "no";
     hilight_color = "%G";
     hilight_act_color = "%4";
+    bell_beeps = "yes";
+    beep_msg_level = "MSGS NOTICES HILIGHT";
   };
   "perl/core/scripts" = {
     awl_block = "-13";
@@ -218,7 +220,17 @@ ignores = (
   { level = "JOINS PARTS QUITS NICKS"; },
   { mask = "nishbot"; level = "ALL"; }
 );
-hilights = ( { text = "releng"; nick = "no"; word = "yes"; } );
+hilights = (
+  { text = "releng"; nick = "no"; word = "yes"; },
+  {
+    text = "http(s)?://[A-Za-z0-9_/&?=%.;~#)(+-]*";
+    color = "%G";
+    act_color = "%n";
+    nick = "no";
+    word = "yes";
+    regexp = "yes";
+  }
+);
 keyboard = ( { key = "meta-l"; id = "command"; data = "window last"; } );
 windows = {
   1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
@@ -283,4 +295,4 @@ windows = {
     );
   };
 };
-mainwindows = { 3 = { first_line = "1"; lines = "38"; }; };
+mainwindows = { 1 = { first_line = "1"; lines = "38"; }; };
