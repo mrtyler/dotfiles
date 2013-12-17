@@ -6,13 +6,6 @@ servers = (
     username = "troscoe";
     password = "trollscoe";
     use_ssl = "ON";
-  },
-  {
-    address = "yelp";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-    autoconnect = "yes";
   }
 );
 
@@ -197,6 +190,9 @@ settings = {
   "fe-common/core" = { theme = "xchat"; };
 };
 logs = { };
-ignores = ( { level = "JOINS PARTS QUITS NICKS"; } );
+ignores = (
+  { level = "JOINS PARTS QUITS NICKS"; },
+  { mask = "nishbot"; level = "ALL"; }
+);
 hilights = ( { text = "releng"; nick = "no"; word = "yes"; } );
 keyboard = ( { key = "meta-l"; id = "command"; data = "window last"; } );
