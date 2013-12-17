@@ -191,6 +191,7 @@ settings = {
     real_name = "Tyler Roscoe";
     user_name = "troscoe";
     nick = "troscoe";
+    timestamp_format = "%d.%H:%M:%S";
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "xchat"; };
