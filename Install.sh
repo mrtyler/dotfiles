@@ -20,10 +20,14 @@ for i in $symlink_us
 do
 	cd $HOME
 	ln -s $src_dir/$i .$i
+	cd -
 done
 
 # who's a snowflake? irssi's a snowflake!
-mkdir .irssi
-cd .irssi
-ln -s $src_dir/irssi_config config
+mkdir $HOME/.irssi
+cd $HOME/.irssi
+for i in $src_dir/irssi/*
+do
+	ln -s $i .
+done
 cd -
