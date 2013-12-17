@@ -205,6 +205,7 @@ settings = {
     hilight_act_color = "%4";
     bell_beeps = "yes";
     beep_msg_level = "MSGS NOTICES HILIGHT";
+    activity_hide_level = "QUITS JOINS PARTS KICKS MODES TOPIC NICKS";
   };
   "perl/core/scripts" = {
     awl_block = "-13";
