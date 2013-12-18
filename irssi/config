@@ -201,11 +201,12 @@ settings = {
   "fe-common/core" = {
     theme = "xchat";
     show_names_on_join = "no";
-    hilight_color = "%Y";
-    hilight_act_color = "%R%B";
+    hilight_color = "%8%B";
+    hilight_act_color = "%8%B";
     bell_beeps = "yes";
     beep_msg_level = "MSGS NOTICES HILIGHT";
     activity_hide_level = "QUITS JOINS PARTS KICKS MODES TOPIC NICKS";
+    hilight_nick_matches = "no";
   };
   "perl/core/scripts" = {
     awl_block = "-13";
@@ -222,6 +223,15 @@ ignores = (
   { mask = "nishbot"; level = "ALL"; }
 );
 hilights = (
+  # NOTE: ORDER MATTERS APPARENTLY!
+  {
+    text = "troscoe";
+    color = "%8%M";
+    act_color = "%8%M";
+    nick = "no";
+    word = "yes";
+    regexp = "no";
+  },
   { text = "releng"; nick = "no"; word = "yes"; },
   {
     text = "http(s)?://[A-Za-z0-9_/&?=%.;:~#)(+!-]*";
@@ -232,7 +242,7 @@ hilights = (
     regexp = "yes";
   }
 );
-keyboard = ( { key = "meta-l"; id = "command"; data = "window last"; } );
+keyboard = ( { key = "meta-x"; id = "command"; data = "window last"; } );
 windows = {
   1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
   2 = {
