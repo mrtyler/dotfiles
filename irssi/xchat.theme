@@ -164,11 +164,11 @@ abstracts = {
   # ',' separator
   sb_act_sep = "%K$*";
   # normal text
-  sb_act_text = "%c$*";
+  sb_act_text = "%w$*";
   # public message
-  sb_act_msg = "%W$*";
+  sb_act_msg = "%C$*";
   # hilight
-  sb_act_hilight = "%M$*";
+  sb_act_hilight = "%8%M$*";
   # hilight with specified color, $0 = color, $1 = text
   sb_act_hilight_color = "$0$1-%w";
 
@@ -228,7 +228,7 @@ formats = {
     pubmsg_hilight_channel = "{pubmsghinick $0 $4 $[-11]1{msgchannel $2}}%K|%n $3";
     #pubmsg_channel = "{pubmsgnick {pubnick $[-11]0}{msgchannel $1}}%K|%n $2";
 
-    pubmsg = "%b<%w$2\00306$[-11]0%b>%K|%n $1";
+    pubmsg = "%b<%w$2\00303$[-11]0%b>%K|%n $1";
     talking_with = "           %w-%c-%C- %K| %nYou are now talking with %W$0";
     refnum_too_low = "           %w-%c-%C- %K| %WWindow: %nWindow number must be greater than 1";
     error_server_sticky = "           %w-%c-%C- %K| %WWindow: %nWindow's server is sticky, use -unsticky option to change";
