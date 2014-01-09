@@ -197,6 +197,7 @@ settings = {
     actlist_sort = "refnum";
     scrollback_lines = "9999";
     scrollback_time = "7day";
+    scroll_page_count = "-1";
   };
   "fe-common/core" = {
     theme = "xchat";
@@ -243,7 +244,13 @@ hilights = (
     regexp = "yes";
   }
 );
-keyboard = ( { key = "meta-x"; id = "command"; data = "window last"; } );
+keyboard = (
+  { key = "meta-x"; id = "command"; data = "window last"; },
+  { key = "meta-h"; id = "command"; data = "scrollback home"; },
+  { key = "meta-j"; id = "command"; data = "scrollback goto +1"; },
+  { key = "meta-k"; id = "command"; data = "scrollback goto -1"; },
+  { key = "meta-l"; id = "command"; data = "scrollback end"; }
+);
 windows = {
   1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
   2 = {
