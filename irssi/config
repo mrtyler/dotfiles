@@ -220,8 +220,8 @@ settings = {
 };
 logs = { };
 ignores = (
-  { level = "JOINS PARTS QUITS NICKS"; },
-  { mask = "nishbot"; level = "ALL"; }
+  { mask = "nishbot"; level = "ALL"; },
+  { level = "SNOTES JOINS PARTS QUITS NICKS"; }
 );
 hilights = (
   # NOTE: ORDER MATTERS APPARENTLY!
