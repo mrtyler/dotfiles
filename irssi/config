@@ -15,8 +15,9 @@ chatnets = {
   yelp = { type = "IRC"; };
 };
 
-channels = ( 
-  { name = "#levchins"; chatnet = "yelp"; autojoin = "yes"; }
+channels = (
+  { name = "#levchins"; chatnet = "yelp"; autojoin = "yes"; },
+  { name = "#opsdeputies"; chatnet = "yelp"; autojoin = "yes"; }
 );
 
 aliases = {
