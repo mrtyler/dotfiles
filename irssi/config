@@ -235,7 +235,7 @@ hilights = (
     word = "yes";
     regexp = "no";
   },
-  { text = "releng"; nick = "no"; word = "yes"; },
+  { text = "releng"; nick = "no"; word = "yes"; fullword = "yes"; },
   {
     text = "http(s)?://[A-Za-z0-9_/&?=%.;:~#)(+!-]*";
     color = "%U%B";
