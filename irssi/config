@@ -266,12 +266,22 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#levchins";
+        name = "#criticals";
         tag = "yelp";
       }
     );
   };
   4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#levchins";
+        tag = "yelp";
+      }
+    );
+  };
+  5 = {
     items = (
       { 
         type = "CHANNEL";
@@ -281,7 +291,7 @@ windows = {
       }
     );
   };
-  5 = {
+  6 = {
     items = (
       {
         type = "CHANNEL";
@@ -291,7 +301,7 @@ windows = {
       }
     );
   };
-  6 = {
+  7 = {
     items = (
       {
         type = "CHANNEL";
@@ -301,7 +311,7 @@ windows = {
       }
     );
   };
-  7 = {
+  8 = {
     items = (
       {
         type = "CHANNEL";
@@ -311,5 +321,15 @@ windows = {
       }
     );
   };
+  9 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#opsdeputies";
+        tag = "yelp";
+      }
+    );
+  };
 };
-mainwindows = { 1 = { first_line = "1"; lines = "38"; }; };
+mainwindows = { 1 = { first_line = "1"; lines = "43"; }; };
