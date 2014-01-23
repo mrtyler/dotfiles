@@ -16,8 +16,6 @@ chatnets = {
 };
 
 channels = (
-  { name = "#levchins"; chatnet = "yelp"; autojoin = "yes"; },
-  { name = "#opsdeputies"; chatnet = "yelp"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -211,7 +209,7 @@ settings = {
     hilight_nick_matches = "no";
   };
   "perl/core/scripts" = {
-    awl_block = "-13";
+    awl_block = "-14";
     awl_display_key = "$Q $H$C$S";
     awl_display_key_active = "%g$Q $H%U$C%n$S%n";
     awl_display_nokey = "[$N]$H$C$S";
