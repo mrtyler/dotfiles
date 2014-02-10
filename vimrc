@@ -15,7 +15,7 @@ set list
 set listchars=tab:>-,eol:$,trail:·
 syntax enable
 "fffffffuuuuuuuuu DarkBlue
-highlight Comment ctermfg=Yellow
+highlight Comment ctermfg=DarkGreen
 
 """2011-06-25
 """From http://www.ktaylor.name/2009/11/vim-screen-lisp-programming-environment.html
@@ -50,12 +50,6 @@ set smarttab            "backspace to remove space-indents
 filetype on
 filetype indent on
 filetype plugin on
-
-" At work we use tabs =/
-if filereadable("/nail/scripts/aliases.sh")
-    set noexpandtab
-    set textwidth=0
-endif
 
 """2012-04-23
 """From https://trac.yelpcorp.com/wiki/VimTips
