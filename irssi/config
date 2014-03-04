@@ -306,22 +306,12 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#releng";
-        tag = "yelp";
-      }
-    );
-  };
-  8 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
         name = "#operations";
         tag = "yelp";
       }
     );
   };
-  9 = {
+  8 = {
     items = (
       {
         type = "CHANNEL";
@@ -332,4 +322,4 @@ windows = {
     );
   };
 };
-mainwindows = { 1 = { first_line = "1"; lines = "43"; }; };
+mainwindows = { 7 = { first_line = "1"; lines = "43"; }; };
