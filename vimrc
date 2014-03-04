@@ -5,7 +5,7 @@ call pathogen#infect('~/dotfiles/vim/bundle')
 
 set modeline
 set modelines=5
-set textwidth=72
+set textwidth=0
 set tabstop=4
 set shiftwidth=4
 set autoindent
