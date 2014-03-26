@@ -91,6 +91,7 @@ alias learnham='sa-learn --ham --showdots $HOME/Maildir/cur/* $HOME/Maildir/save
 if `which vim > /dev/null 2>&1`
 then
     vi='vim'
+    alias ivi="vim -i NONE --cmd 'set noswapfile' --cmd 'set nobackup' -u NONE -U NONE"
 elif `which nvi > /dev/null 2>&1`
 then
     vi='nvi'
