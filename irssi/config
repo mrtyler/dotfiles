@@ -266,7 +266,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#criticals";
+        name = "#operations-pages";
         tag = "yelp";
       }
     );
