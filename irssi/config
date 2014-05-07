@@ -188,7 +188,10 @@ settings = {
   core = {
     real_name = "Tyler Roscoe";
     user_name = "troscoe";
-    nick = "troscoe";
+    # This results in useless "troscoe_nick: no such nick/channel". But if I
+    # leave it out, I get that message for "troscoe" anyway plus a new 'nick =
+    # troscoe' line added to this file.
+    nick = "troscoe_nick_that_will_be_rejected_fuck_you_irssi_and_or_znc";
     timestamp_format = "%d.%H:%M:%S";
   };
   "fe-text" = {
