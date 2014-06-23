@@ -207,7 +207,7 @@ settings = {
     hilight_act_color = "%8%B";
     bell_beeps = "yes";
     beep_msg_level = "MSGS NOTICES HILIGHT";
-    activity_hide_level = "JOINS PARTS QUITS KICKS MODES NICKS";
+    activity_hide_level = "QUITS JOINS PARTS KICKS MODES NICKS";
     hilight_nick_matches = "no";
   };
   "perl/core/scripts" = {
