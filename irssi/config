@@ -199,6 +199,7 @@ settings = {
     scrollback_lines = "9999";
     scrollback_time = "7day";
     scroll_page_count = "-1";
+    indent = "35";
   };
   "fe-common/core" = {
     theme = "xchat";
