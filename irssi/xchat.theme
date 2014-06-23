@@ -235,7 +235,7 @@ formats = {
     # 2014-06-23
     # This gets frobbed by xchatnickcolor.py, so changes have to go in both
     # places.
-    pubmsg = "%b<%w$2\00310$[-15]0%b>%K | %n $1";
+    pubmsg = "%b<%w$2\00305$[-15]0%b> %K|%n $1";
     talking_with = "           %w-%c-%C- %K| %nYou are now talking with %W$0";
     refnum_too_low = "           %w-%c-%C- %K| %WWindow: %nWindow number must be greater than 1";
     error_server_sticky = "           %w-%c-%C- %K| %WWindow: %nWindow's server is sticky, use -unsticky option to change";

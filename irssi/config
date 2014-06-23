@@ -210,6 +210,7 @@ settings = {
     beep_msg_level = "MSGS NOTICES HILIGHT";
     activity_hide_level = "QUITS JOINS PARTS KICKS MODES NICKS";
     hilight_nick_matches = "no";
+    activity_hide_targets = "#yelp #systems";
   };
   "perl/core/scripts" = {
     awl_block = "-13";
