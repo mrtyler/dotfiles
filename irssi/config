@@ -218,6 +218,7 @@ settings = {
     awl_hide_data = "0";
     awl_prefer_name = "yes";
     growl_enabled = "yes";
+    trackbar_string = "=*";
   };
 };
 logs = { };
