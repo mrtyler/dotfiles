@@ -228,7 +228,7 @@ logs = { };
 ### { level = "SNOTES JOINS PARTS QUITS NICKS"; }
 ignores = (
   { mask = "nishbot"; level = "ALL"; },
-  { level = "JOINS PARTS QUITS"; }
+  { level = "SNOTES JOINS PARTS QUITS"; }
 );
 hilights = (
   # NOTE: ORDER MATTERS APPARENTLY!
