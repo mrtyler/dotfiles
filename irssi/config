@@ -65,6 +65,7 @@ aliases = {
   ATAG = "WINDOW SERVER";
   UNSET = "set -clear";
   RESET = "set -default";
+  sanick = "quote sanick";
 };
 
 statusbar = {
