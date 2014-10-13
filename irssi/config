@@ -212,6 +212,7 @@ settings = {
     activity_hide_level = "QUITS JOINS PARTS KICKS MODES NICKS";
     hilight_nick_matches = "no";
     activity_hide_targets = "#yelp #systems #levchins";
+    show_nickmode = "no";
   };
   "perl/core/scripts" = {
     awl_block = "-13";
