@@ -66,6 +66,7 @@ aliases = {
   UNSET = "set -clear";
   RESET = "set -default";
   sanick = "quote sanick";
+  cowsay = "/exec -o cowsay $*";
 };
 
 statusbar = {
