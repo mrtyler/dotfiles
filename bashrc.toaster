@@ -34,7 +34,7 @@ export PATH=/opt/local/bin:$PATH:~/bin
 unalias ls # BSD ls :(
 alias sto='ds=`date +%Y-%m-%d` && vi ~/docs/sto/$ds'
 alias blo='ds=`date +%Y-%m-%d` && vi ~/docs/blog/$ds'
-alias jou='ds=`date +%Y-%m-%d` && vi ~/docs/js/$ds'
+alias jou='dest="$HOME/crypt/js" ; if [ -d $dest ] ; then ds=`date +%Y-%m-%d` && vi $dest/$ds ; else echo "no dest dir $dest" ; fi'
 ##### end aliases
 
 ##### begin other configuration
