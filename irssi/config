@@ -212,7 +212,7 @@ settings = {
     beep_msg_level = "MSGS NOTICES HILIGHT";
     activity_hide_level = "QUITS JOINS PARTS KICKS MODES NICKS";
     hilight_nick_matches = "no";
-    activity_hide_targets = "#yelp #systems #levchins #operations-pages";
+    activity_hide_targets = "#yelp #systems #levchins #operations-pages #paasta-notifications";
     show_nickmode = "no";
   };
   "perl/core/scripts" = {
@@ -264,7 +264,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#systems";
+        name = "#operations-pages";
         tag = "yelp";
       }
     );
@@ -274,7 +274,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#operations-pages";
+        name = "#paasta-notifications";
         tag = "yelp";
       }
     );
@@ -340,4 +340,4 @@ windows = {
     );
   };
 };
-mainwindows = { 8 = { first_line = "1"; lines = "43"; }; };
+mainwindows = { 1 = { first_line = "1"; lines = "43"; }; };

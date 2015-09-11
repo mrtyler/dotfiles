@@ -89,7 +89,7 @@ abstracts = {
 
   # Actions
 
-  action_core = " %m                * %K|%W $*%n";
+  action_core = " %m               * %K|%W $*%n";
 
   # generic one that's used by most actions
   action = "{action_core $*} ";
