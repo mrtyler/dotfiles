@@ -35,7 +35,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH:/Applications/Postgres.app/Cont
 
 ##### begin aliases
 ### general
-unalias ls # BSD ls :(
+alias ls="gls --color=auto" # BSD ls :(
 alias sto='ds=`date +%Y-%m-%d` && vi ~/docs/sto/$ds'
 alias blo='dest="$HOME/docs/blog" ds=`date +%Y-%m-%d` last=`cd $dest && ls [0-9][0-9][0-9][0-9]-* | tail -1` && cd $dest && vi $last $ds && cd -'
 alias jou='dest="$HOME/x/js" ; if [ -d $dest ] ; then ds=`date +%Y-%m-%d` && vi $dest/$ds ; else echo "no dest dir $dest" ; fi'
