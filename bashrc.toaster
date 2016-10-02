@@ -26,15 +26,19 @@ do
 done
 
 ##### begin environment variables
-export PATH=/opt/local/bin:$PATH:~/bin
+# /opt is for portage. port automatically adds it to ~/.profile, which is not
+# where i do things.
+#
+# postgres is for postgres obv (http://postgresapp.com/documentation/cli-tools.html)
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin:~/bin
 ##### end environment variables
 
 ##### begin aliases
 ### general
 unalias ls # BSD ls :(
 alias sto='ds=`date +%Y-%m-%d` && vi ~/docs/sto/$ds'
-alias blo='ds=`date +%Y-%m-%d` && vi ~/docs/blog/$ds'
-alias jou='dest="$HOME/crypt/js" ; if [ -d $dest ] ; then ds=`date +%Y-%m-%d` && vi $dest/$ds ; else echo "no dest dir $dest" ; fi'
+alias blo='dest="$HOME/docs/blog" ds=`date +%Y-%m-%d` last=`cd $dest && ls [0-9][0-9][0-9][0-9]-* | tail -1` && cd $dest && vi $last $ds && cd -'
+alias jou='dest="$HOME/x/js" ; if [ -d $dest ] ; then ds=`date +%Y-%m-%d` && vi $dest/$ds ; else echo "no dest dir $dest" ; fi'
 ##### end aliases
 
 ##### begin other configuration

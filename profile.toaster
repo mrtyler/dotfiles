@@ -1,4 +1,4 @@
-# This .bashrc is the local config. It will call the system config, do
+# This .profile is the local config. It will call the system config, do
 # some setup, call the common config, and then finish up as needed.
 
 SYSTEM_PROFILE=/etc/profile
