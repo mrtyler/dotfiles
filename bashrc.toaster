@@ -33,7 +33,7 @@ done
 # go is for go (https://golang.org/doc/install)
 export PATH=$HOME/bin:/opt/local/bin:/opt/local/sbin:$PATH:/usr/local/go/bin:/Applications/Postgres.app/Contents/Versions/latest/bin
 
-export GOPATH=$HOME/src/go
+export GOPATH=$HOME/code/go
 ##### end environment variables
 
 ##### begin aliases
