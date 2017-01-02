@@ -1,19 +1,6 @@
-servers = (
-  {
-    address = "dev8-devc";
-    chatnet = "yelp";
-    port = "23456";
-    username = "troscoe";
-    password = "trollscoe";
-    use_ssl = "ON";
-    autoconnect = "yes";
-  }
-);
+servers = ( );
 
-chatnets = {
-  "dev8-devc" = { type = "IRC"; nick = "yelp"; };
-  yelp = { type = "IRC"; };
-};
+chatnets = { };
 
 channels = ( );
 
@@ -189,11 +176,11 @@ statusbar = {
 settings = {
   core = {
     real_name = "Tyler Roscoe";
-    user_name = "troscoe";
-    # This results in useless "troscoe_nick: no such nick/channel". But if I
-    # leave it out, I get that message for "troscoe" anyway plus a new 'nick =
-    # troscoe' line added to this file.
-    nick = "troscoe_nick_that_will_be_rejected_fuck_you_irssi_and_or_znc";
+    user_name = "mrtyler";
+    # This results in useless "mrtyler_nick: no such nick/channel". But if I
+    # leave it out, I get that message for "mrtyler" anyway plus a new 'nick =
+    # mrtyler' line added to this file.
+    nick = "mrtyler_nick_that_will_be_rejected_fuck_you_irssi_and_or_znc";
     timestamp_format = "%d.%H:%M:%S";
   };
   "fe-text" = {
@@ -234,7 +221,7 @@ ignores = (
 hilights = (
   # NOTE: ORDER MATTERS APPARENTLY!
   {
-    text = "troscoe";
+    text = "mrtyler";
     color = "%8%M";
     act_color = "%8%M";
     nick = "no";
@@ -257,87 +244,5 @@ keyboard = (
   { key = "meta-k"; id = "command"; data = "scrollback goto -1"; },
   { key = "meta-l"; id = "command"; data = "scrollback end"; }
 );
-windows = {
-  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
-  2 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#operations-pages";
-        tag = "yelp";
-      }
-    );
-  };
-  3 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#paasta-notifications";
-        tag = "yelp";
-      }
-    );
-  };
-  4 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#yelp";
-        tag = "yelp";
-      }
-    );
-  };
-  5 = {
-    items = (
-      { 
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#git";
-        tag = "yelp";
-      }
-    );
-  };
-  6 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#opsdeputies";
-        tag = "yelp";
-      }
-    );
-  };
-  7 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#levchins";
-        tag = "yelp";
-      }
-    );
-  };
-  8 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#operations";
-        tag = "yelp";
-      }
-    );
-  };
-  9 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#paasta";
-        tag = "yelp";
-      }
-    );
-  };
-};
+windows = { 1 = { immortal = "yes"; name = "(status)"; level = "ALL"; }; };
 mainwindows = { 1 = { first_line = "1"; lines = "43"; }; };
