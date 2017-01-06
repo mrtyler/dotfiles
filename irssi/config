@@ -219,8 +219,11 @@ settings = {
     awl_display_nokey = "[$N]$H$C$S";
     awl_hide_data = "0";
     awl_prefer_name = "yes";
-    growl_enabled = "yes";
+    # If you want this back, you also need local-growl.pl in scripts
+    # growl_enabled = "yes";
     trackbar_string = "=*";
+    notifier_on_regex = "mrtyler";
+    notifier_on_privmsg = "1 ";
   };
 };
 logs = { };
@@ -287,4 +290,4 @@ windows = {
     );
   };
 };
-mainwindows = { 5 = { first_line = "1"; lines = "43"; }; };
+mainwindows = { 1 = { first_line = "1"; lines = "43"; }; };
