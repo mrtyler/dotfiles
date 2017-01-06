@@ -1,8 +1,21 @@
-servers = ( );
+servers = (
+  {
+    address = "chat.freenode.net";
+    chatnet = "freenode";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  }
+);
 
-chatnets = { };
+chatnets = { freenode = { type = "IRC"; }; };
 
-channels = ( );
+channels = (
+  { name = "#fluid-work"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#fluid-tech"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#fluid-design"; chatnet = "freenode"; autojoin = "yes"; }
+);
 
 aliases = {
   J = "join";
