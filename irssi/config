@@ -177,10 +177,7 @@ settings = {
   core = {
     real_name = "Tyler Roscoe";
     user_name = "mrtyler";
-    # This results in useless "mrtyler_nick: no such nick/channel". But if I
-    # leave it out, I get that message for "mrtyler" anyway plus a new 'nick =
-    # mrtyler' line added to this file.
-    nick = "mrtyler_nick_that_will_be_rejected_fuck_you_irssi_and_or_znc";
+    nick = "mrtyler";
     timestamp_format = "%d.%H:%M:%S";
   };
   "fe-text" = {
@@ -244,5 +241,37 @@ keyboard = (
   { key = "meta-k"; id = "command"; data = "scrollback goto -1"; },
   { key = "meta-l"; id = "command"; data = "scrollback end"; }
 );
-windows = { 1 = { immortal = "yes"; name = "(status)"; level = "ALL"; }; };
-mainwindows = { 1 = { first_line = "1"; lines = "43"; }; };
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#fluid-work";
+        tag = "freenode";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#fluid-tech";
+        tag = "freenode";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#fluid-design";
+        tag = "freenode";
+      }
+    );
+  };
+};
+mainwindows = { 5 = { first_line = "1"; lines = "43"; }; };
