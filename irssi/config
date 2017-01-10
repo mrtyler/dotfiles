@@ -299,5 +299,15 @@ windows = {
       }
     );
   };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#darwin";
+        tag = "skub";
+      }
+    );
+  };
 };
-mainwindows = { 1 = { first_line = "1"; lines = "43"; }; };
+mainwindows = { 5 = { first_line = "1"; lines = "43"; }; };
