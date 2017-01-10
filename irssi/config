@@ -18,7 +18,10 @@ servers = (
   }
 );
 
-chatnets = { freenode = { type = "IRC"; }; darwin = { type = "IRC"; }; };
+chatnets = {
+  freenode = { type = "IRC"; };
+  darwin = { type = "IRC"; nick = "troscoe"; };
+};
 
 channels = (
   { name = "#fluid-work"; chatnet = "freenode"; autojoin = "yes"; },
