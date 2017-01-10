@@ -6,15 +6,25 @@ servers = (
     use_ssl = "yes";
     ssl_verify = "no";
     autoconnect = "yes";
+  },
+  {
+    address = "a.private.club";
+    chatnet = "darwin";
+    port = "6697";
+    password = "__________________DON'T COMMIT YOUR PASSWORD DUMMY__________________";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
   }
 );
 
-chatnets = { freenode = { type = "IRC"; }; };
+chatnets = { freenode = { type = "IRC"; }; darwin = { type = "IRC"; }; };
 
 channels = (
   { name = "#fluid-work"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#fluid-tech"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#fluid-design"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "#fluid-design"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#darwin"; chatnet = "darwin"; autojoin = "yes"; }
 );
 
 aliases = {
