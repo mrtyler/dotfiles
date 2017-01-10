@@ -235,7 +235,7 @@ settings = {
     # If you want this back, you also need local-growl.pl in scripts
     # growl_enabled = "yes";
     trackbar_string = "=*";
-    notifier_on_regex = "mrtyler";
+    notifier_on_regex = "(mrtyler|troscoe)";
     notifier_on_privmsg = "1 ";
   };
 };
@@ -248,6 +248,14 @@ hilights = (
   # NOTE: ORDER MATTERS APPARENTLY!
   {
     text = "mrtyler";
+    color = "%8%M";
+    act_color = "%8%M";
+    nick = "no";
+    word = "yes";
+    regexp = "no";
+  },
+  {
+    text = "troscoe";
     color = "%8%M";
     act_color = "%8%M";
     nick = "no";
