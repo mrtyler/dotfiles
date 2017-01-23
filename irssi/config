@@ -316,10 +316,20 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
+        name = "#fluid-ops";
+        tag = "freenode";
+      }
+    );
+  };
+  6 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
         name = "#darwin";
         tag = "darwin";
       }
     );
   };
 };
-mainwindows = { 5 = { first_line = "1"; lines = "43"; }; };
+mainwindows = { 1 = { first_line = "1"; lines = "43"; }; };
