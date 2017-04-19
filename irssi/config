@@ -325,20 +325,10 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#terraform-tool";
-        tag = "freenode";
-      }
-    );
-  };
-  7 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
         name = "#darwin";
         tag = "darwin";
       }
     );
   };
 };
-mainwindows = { 6 = { first_line = "1"; lines = "43"; }; };
+mainwindows = { 1 = { first_line = "1"; lines = "43"; }; };
