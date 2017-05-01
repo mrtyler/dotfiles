@@ -55,6 +55,8 @@ filetype plugin on
 """From https://trac.yelpcorp.com/wiki/VimTips
 "Initialize with:
 "/usr/bin/ctags -L <(find . -name '*.py') --fields=+iaS --python-kinds=-i --sort=yes --extra=+q
+"Or for ruby:
+"ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)
 set tags=./tags;/
 
 """2012-04-24
