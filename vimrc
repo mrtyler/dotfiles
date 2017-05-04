@@ -57,6 +57,8 @@ filetype plugin on
 "/usr/bin/ctags -L <(find . -name '*.py') --fields=+iaS --python-kinds=-i --sort=yes --extra=+q
 "Or for ruby:
 "ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)
+"Or for go (using https://github.com/jstemmer/gotags):
+"~/code/go/bin/gotags -R . > tags
 set tags=./tags;/
 
 """2012-04-24
