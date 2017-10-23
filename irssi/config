@@ -222,7 +222,7 @@ settings = {
     beep_msg_level = "MSGS NOTICES HILIGHT";
     activity_hide_level = "QUITS JOINS PARTS MODES NICKS";
     hilight_nick_matches = "no";
-    activity_hide_targets = "#yelp #systems #levchins #operations-pages #paasta-notifications";
+    activity_hide_targets = "#fluid-work #fluid-design #darwin";
     show_nickmode = "no";
   };
   "perl/core/scripts" = {
@@ -285,7 +285,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#fluid-work";
+        name = "#fluid-tech";
         tag = "freenode";
       }
     );
@@ -295,7 +295,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#fluid-tech";
+        name = "#fluid-ops";
         tag = "freenode";
       }
     );
@@ -305,7 +305,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#fluid-design";
+        name = "#fluid-work";
         tag = "freenode";
       }
     );
@@ -315,7 +315,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#fluid-ops";
+        name = "#fluid-design";
         tag = "freenode";
       }
     );
@@ -331,4 +331,4 @@ windows = {
     );
   };
 };
-mainwindows = { 1 = { first_line = "1"; lines = "43"; }; };
+mainwindows = { 1 = { first_line = "1"; lines = "58"; }; };
