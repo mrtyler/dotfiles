@@ -146,6 +146,7 @@ sort-in-place() {
     sort -n $1 > $TMPDIR/z.$$ && mv $TMPDIR/z.$$ $1
 }
 
+alias randomize="perl -MList::Util=shuffle -e'print shuffle<>'"
 alias sortr="ls | perl -MList::Util=shuffle -e'print shuffle<>' | xargs less"
 
 ##### end aliases
