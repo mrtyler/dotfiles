@@ -8,27 +8,33 @@ servers = (
     autoconnect = "yes";
   },
   {
-    address = "a.private.club";
+    address = "irc.darwin.network";
     chatnet = "darwin";
     port = "6697";
     password = "__________________DON'T COMMIT YOUR PASSWORD DUMMY__________________";
-    use_ssl = "yes";
-    ssl_verify = "no";
+    use_tls = "yes";
+    tls_verify = "yes";
     autoconnect = "yes";
   }
 );
 
 chatnets = {
   freenode = { type = "IRC"; };
-  darwin = { type = "IRC"; nick = "troscoe"; };
+  darwin = {
+    type = "IRC";
+    nick = "troscoe";
+    sasl_mechanism = "PLAIN";
+    sasl_username = "troscoe";
+    sasl_password = "__________________DON'T COMMIT YOUR PASSWORD DUMMY__________________";
+  };
 };
 
 channels = (
-  { name = "#fluid-work"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#fluid-tech"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#fluid-design"; chatnet = "freenode"; autojoin = "yes"; },
+  #{ name = "#fluid-work"; chatnet = "freenode"; autojoin = "yes"; },
+  #{ name = "#fluid-tech"; chatnet = "freenode"; autojoin = "yes"; },
+  #{ name = "#fluid-design"; chatnet = "freenode"; autojoin = "yes"; },
+  #{ name = "#fluid-ops"; chatnet = "freenode"; autojoin = "yes"; }
   { name = "#darwin"; chatnet = "darwin"; autojoin = "yes"; },
-  { name = "#fluid-ops"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
 aliases = {
