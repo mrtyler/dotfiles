@@ -160,4 +160,10 @@ fi
 # Stupid openssh workaround
 shopt -s huponexit
 
+# for tmux-resurrect, but seems generally helpful
+HISTCONTROL=ignoreboth
+
+# manually fix tmux ssh auth sock
+alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
+
 ##### end other configuration
