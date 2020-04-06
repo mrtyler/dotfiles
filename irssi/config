@@ -34,7 +34,7 @@ channels = (
   #{ name = "#fluid-tech"; chatnet = "freenode"; autojoin = "yes"; },
   #{ name = "#fluid-design"; chatnet = "freenode"; autojoin = "yes"; },
   #{ name = "#fluid-ops"; chatnet = "freenode"; autojoin = "yes"; }
-  { name = "#darwin"; chatnet = "darwin"; autojoin = "yes"; },
+  { name = "#darwin"; chatnet = "darwin"; autojoin = "yes"; }
 );
 
 aliases = {
