@@ -166,4 +166,7 @@ HISTCONTROL=ignoreboth
 # manually fix tmux ssh auth sock
 alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
 
+# silence macos "zsh is now the default shell" warning
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 ##### end other configuration

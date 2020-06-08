@@ -1,0 +1,39 @@
+# This .bashrc is the local config. It will call the system config, do
+# some setup, call the common config, and then finish up as needed.
+
+SYSTEM_BASHRC=/etc/bashrc
+COMMON_BASHRC=$HOME/dotfiles/bashrc.common
+
+# Source system config
+for file in $SYSTEM_BASHRC
+do
+	#echo "Sourcing system bashrc $file"
+	if [ -f $file ]; then
+		source $file
+	fi
+done
+
+# Set up some variables needed by the common config
+SSH_IDENTITY="$HOME/.ssh/id_ed25519"
+
+# Source common config
+for file in $COMMON_BASHRC
+do
+	#echo "Sourcing common bashrc $file"
+	if [ -f $file ]; then
+		source $file
+	fi
+done
+
+##### begin environment variables
+##### end environment variables
+
+##### begin aliases
+### general
+alias ls="gls --color=auto" # BSD ls :(
+##### end aliases
+
+##### begin other configuration
+umask 007 # this is for "one user per group" type systems.
+#eval `dircolors`
+##### end other configuration
