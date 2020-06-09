@@ -11,7 +11,7 @@ servers = (
     address = "irc.darwin.network";
     chatnet = "darwin";
     port = "6697";
-    password = "__________________DON'T COMMIT YOUR PASSWORD DUMMY__________________";
+    password = "smellyoulater";
     use_tls = "yes";
     tls_verify = "yes";
     autoconnect = "yes";
@@ -25,7 +25,7 @@ chatnets = {
     nick = "troscoe";
     sasl_mechanism = "PLAIN";
     sasl_username = "troscoe";
-    sasl_password = "__________________DON'T COMMIT YOUR PASSWORD DUMMY__________________";
+    sasl_password = "secure_AND_shared_password";
   };
 };
 
@@ -225,8 +225,8 @@ settings = {
     show_names_on_join = "no";
     hilight_color = "%8%B";
     hilight_act_color = "%8%B";
-    beep_msg_level = "MSGS NOTICES HILIGHT";
-    activity_hide_level = "QUITS JOINS PARTS MODES NICKS";
+    beep_msg_level = "MSGS HILIGHT";
+    activity_hide_level = "QUITS JOINS PARTS MODES NICKS NOTICES";
     hilight_nick_matches = "no";
     activity_hide_targets = "#fluid-work #fluid-design #darwin";
     show_nickmode = "no";
