@@ -31,6 +31,10 @@ done
 ##### begin aliases
 ### general
 alias ls="gls --color=auto" # BSD ls :(
+
+alias terraform='echo NO!!!!!!1'
+alias tf11='/usr/local/opt/terraform@0.11/bin/terraform'
+alias tf12='/usr/local/bin/terraform'
 ##### end aliases
 
 ##### begin other configuration
