@@ -41,3 +41,5 @@ alias tf12='/usr/local/bin/terraform'
 umask 007 # this is for "one user per group" type systems.
 #eval `dircolors`
 ##### end other configuration
+
+. $HOME/dotfiles/bashrc.darkwing.secrets
