@@ -24,7 +24,8 @@ chatnets = {
     type = "IRC";
     nick = "troscoe";
     sasl_mechanism = "PLAIN";
-    sasl_username = "troscoe";
+    # [25.21:53:03] shivaram> basically you just have to do `/msg nickserv set always-on true` and then tell irssi that your sasl username is troscoe@irssi or troscoe@computer_name
+    sasl_username = "troscoe@irssi";
     sasl_password = "secure_AND_shared_password";
   };
 };
@@ -208,7 +209,7 @@ statusbar = {
 };
 settings = {
   core = {
-    real_name = "Tyler Roscoe";
+    real_name = "mrtyler";
     user_name = "mrtyler";
     nick = "mrtyler";
     timestamp_format = "%d.%H:%M:%S";
