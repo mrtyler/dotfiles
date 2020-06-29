@@ -11,7 +11,7 @@ servers = (
     address = "irc.darwin.network";
     chatnet = "darwin";
     port = "6697";
-    password = "smellyoulater";
+    password = "__________________DON'T COMMIT YOUR PASSWORD DUMMY__________________";
     use_tls = "yes";
     tls_verify = "yes";
     autoconnect = "yes";
@@ -26,7 +26,7 @@ chatnets = {
     sasl_mechanism = "PLAIN";
     # [25.21:53:03] shivaram> basically you just have to do `/msg nickserv set always-on true` and then tell irssi that your sasl username is troscoe@irssi or troscoe@computer_name
     sasl_username = "troscoe@irssi";
-    sasl_password = "secure_AND_shared_password";
+    sasl_password = "__________________DON'T COMMIT YOUR PASSWORD DUMMY__________________";
   };
 };
 
