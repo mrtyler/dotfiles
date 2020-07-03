@@ -19,7 +19,7 @@ export breaker=tool.badmofos.org
 ### general
 export CVS_RSH=ssh
 export PAGER=less
-export PS1='\[\e[1;32m\][\u@\h:\w]\$\[\e[0m\] '
+export PS1='\[\e[1;32m\][\u@\h:\w\[\e[0m $(parse_git_branch)\[\e[1;32m\]\]]\$\[\e[0m\] '
 export PATH=$PATH:$HOME/bin
 export TEMP=/tmp/$USER
 export TMP=/tmp/$USER
@@ -148,6 +148,11 @@ sort-in-place() {
 
 alias randomize="perl -MList::Util=shuffle -e'print shuffle<>'"
 alias sortr="ls | perl -MList::Util=shuffle -e'print shuffle<>' | xargs less"
+
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+
 
 ##### end aliases
 ##### begin other configuration
