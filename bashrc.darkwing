@@ -26,6 +26,7 @@ do
 done
 
 ##### begin environment variables
+SECRETS_HOME=/Users/troscoe/evi/secrets
 ##### end environment variables
 
 ##### begin aliases
