@@ -31,3 +31,9 @@ do
 	ln -s "$i" .
 done
 cd -
+
+# also gnupg
+mkdir -m700 "$HOME/.gnupg"
+cd "$HOME/.gnupg"
+ln -s "$src_dir/gnupg.conf" "$i"
+cd -
