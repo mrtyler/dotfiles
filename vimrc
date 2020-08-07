@@ -73,3 +73,8 @@ set statusline+=%*
 let g:pyindent_open_paren = '&sw'
 let g:pyindent_nested_paren = '&sw'
 let g:pyindent_continue = '&sw'
+
+"""2020-08-06
+"""https://stackoverflow.com/questions/23177561/switch-python-version-for-vim-syntastic
+let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_checkers = ['python']
