@@ -36,7 +36,9 @@ alias ls="gls --color=auto" # BSD ls :(
 alias terraform='echo NO!!!!!!1'
 alias tf11='/usr/local/opt/terraform@0.11/bin/terraform'
 alias tf12='/usr/local/opt/terraform@0.12/bin/terraform'
-alias tf14='/usr/local/opt/terraform@0.14/bin/terraform'
+alias tf13='/usr/local/opt/terraform@0.13' # brew doesn't have terraform@0.13 or @0.13.7, and latest has floated to 0.15 so i'm managing this by hand'
+alias tf14='/usr/local/bin/terraform-0.14.6' # brew doesn't have terraform@0.14 or @0.14.6, and latest has floated to 0.15 so i'm managing this by hand
+alias tf10='/usr/local/opt/terraform@1.0/bin/terraform'
 ##### end aliases
 
 ##### begin other configuration
