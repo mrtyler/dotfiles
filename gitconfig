@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Tyler Roscoe
+	email = tyler@NOREPLY
+# Please adapt and uncomment the following lines:
+#	name = tyler
+#	email = tyler@otak.local
+[init]
+	defaultBranch = main
+[core]
+	excludesFile = ~/dotfiles/gitignore

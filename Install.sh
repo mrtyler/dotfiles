@@ -2,7 +2,7 @@
 
 src_dir=$(pwd)
 copy_us="bashrc.template profile.template"
-symlink_us="vimrc cvsrc screenrc tmux.conf tmux zshrc"
+symlink_us="vimrc cvsrc screenrc tmux.conf tmux zshrc gitconfig"
 
 # stupid default .bash_profile screws up my shit
 mv ~/.bash_profile ~/.bash_profile.orig.diediedie
