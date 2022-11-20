@@ -1,3 +1,4 @@
+# vim: set noexpandtab:
 # This is Git's per-user configuration file.
 [user]
 	name = Tyler Roscoe
@@ -9,3 +10,4 @@
 	defaultBranch = main
 [core]
 	excludesFile = ~/dotfiles/gitignore
+	pager = "less -F -X"
