@@ -1,4 +1,15 @@
-2012-01-22 tylermr
+2012-01-22
 
 I've used this setup for managing dotfiles since 2001 or so. My old
 address book (mutt-aliases) is .gitignore'd for privacy.
+
+
+2022-06-07
+
+For tmux plugins, see the relevant project's docs but:
+
+```
+mkdir -p ~/.tmux/plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/plugins/tmux-resurrect
+```
