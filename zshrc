@@ -76,3 +76,83 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+export PAGER=less
+###export PS1='\[\e[1;32m\][\u@\h:\w\[\e[0m\] \[\e[1;33m\]$(parse_git_branch)\[\e[0m\]\[\e[1;32m\]\]]\$ \[\e[0m\]'
+export PATH=$PATH:$HOME/bin
+export VISUAL=vi
+
+alias grlo="ssh root@localhost"
+alias gtlo="ssh $USER@localhost"
+###alias colorprompt="export PS1='\[\e[1;32m\][\u@\h \w]\$\[\e[0m\] '"
+###alias plainprompt="export PS1='[\u@\h \w]\$ '"
+
+alias ag='export IGNOREEOF=3 ; exec ssh-agent zsh'
+ad()
+{
+    if [ -z "$SSH_IDENTITY" ]
+    then
+        echo 'No SSH_IDENTITY specified!'
+        ssh-add
+    else
+        for id in $SSH_IDENTITY
+        do
+            ssh-add $id
+        done
+    fi
+}
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias screen='TERM=screen screen'
+
+# This pretty much assumes GNU ls
+alias ls="ls --color=auto"
+
+# Try to find a useful vi
+if `which vim > /dev/null 2>&1`
+then
+    vi='vim'
+    alias ivi="vim -i NONE --cmd 'set noswapfile' --cmd 'set nobackup' -u NONE -U NONE"
+elif `which nvi > /dev/null 2>&1`
+then
+    vi='nvi'
+else
+    echo "Couldn't find an enhanced vi." > /dev/stderr
+    vi='vi'
+fi
+
+alias vi=$vi
+export VISUAL=$vi
+export EDITOR=$vi
+
+alias randomize="perl -MList::Util=shuffle -e'print shuffle<>'"
+alias sortr="ls | perl -MList::Util=shuffle -e'print shuffle<>' | xargs less"
+
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+
+#### Stupid openssh workaround
+###shopt -s huponexit
+
+# for tmux-resurrect, but seems generally helpful
+# bash: HISTCONTROL=ignoreboth
+# zsh, per https://www.reddit.com/r/zsh/comments/2aoy2i/history_deduplication/ :
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+
+# manually fix tmux ssh auth sock
+alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
+export GPG_TTY=$(tty)
+
+umask 007
+
+# https://github.com/pyenv/pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# https://github.com/pyenv/pyenv-virtualenv
+eval "$(pyenv virtualenv-init -)"
