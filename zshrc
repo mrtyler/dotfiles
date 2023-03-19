@@ -156,3 +156,6 @@ eval "$(pyenv init -)"
 
 # https://github.com/pyenv/pyenv-virtualenv
 eval "$(pyenv virtualenv-init -)"
+
+# 2023-03-19 Full path in prompt
+export PS1=$(echo $PS1 | sed -e 's,%c,%~,g')
