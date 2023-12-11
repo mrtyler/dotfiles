@@ -78,7 +78,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PAGER=less
 ###export PS1='\[\e[1;32m\][\u@\h:\w\[\e[0m\] \[\e[1;33m\]$(parse_git_branch)\[\e[0m\]\[\e[1;32m\]\]]\$ \[\e[0m\]'
-export PATH=$PATH:$HOME/bin
+export PATH=$PATH:/opt/homebrew/bin:$HOME/bin
 export VISUAL=vi
 
 alias grlo="ssh root@localhost"
