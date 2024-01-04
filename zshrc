@@ -157,5 +157,8 @@ eval "$(pyenv init -)"
 # https://github.com/pyenv/pyenv-virtualenv
 eval "$(pyenv virtualenv-init -)"
 
+# Need to fix this up but stupid _openstack thing is getting in the way of my tab completion
+alias openstack='openstack'
+
 # 2023-03-19 Full path in prompt
 export PS1=$(echo $PS1 | sed -e 's,%c,%~,g')
